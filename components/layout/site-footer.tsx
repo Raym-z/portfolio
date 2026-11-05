@@ -8,9 +8,9 @@ const currentYear = new Date().getFullYear();
 
 export function SiteFooter() {
 	return (
-		<footer className='relative mt-24 border-t border-white/[0.06]'>
-			<div className='section-shell py-12'>
-				<div className='max-w-md text-left'>
+		<footer className='relative mt-16 border-t border-white/[0.06] md:mt-24'>
+			<div className='section-shell py-8 md:py-12'>
+				<div className='hidden max-w-md text-left md:block'>
 					<p className='text-sm font-semibold text-white'>{siteConfig.name}</p>
 					<a
 						href={`mailto:${siteConfig.email}`}
@@ -21,8 +21,8 @@ export function SiteFooter() {
 					</a>
 				</div>
 
-				<div className='mt-8 grid max-w-md grid-cols-2 gap-x-6 gap-y-8 md:max-w-lg md:gap-x-12'>
-					<div className='min-w-0'>
+				<div className='grid grid-cols-2 gap-x-6 gap-y-8 md:mt-8 md:max-w-lg md:gap-x-12'>
+					<div className='hidden min-w-0 md:block'>
 						<div className='grid grid-cols-1 gap-1.5 text-xs sm:text-sm'>
 							{siteConfig.nav.map((item) => (
 								<Link key={item.href} href={`/${item.href}`} className='text-gray-400 transition hover:text-white'>
@@ -32,15 +32,15 @@ export function SiteFooter() {
 						</div>
 					</div>
 
-					<div className='min-w-0'>
-						<div className='space-y-2 sm:space-y-2.5'>
+					<div className='col-span-2 min-w-0 md:col-span-1'>
+						<div className='grid grid-cols-4 gap-2 md:block md:space-y-2.5'>
 							{siteConfig.socials.map((social) => (
 								<a
 									key={social.platform}
 									href={social.href}
 									target='_blank'
 									rel='noopener noreferrer'
-									className='group flex items-center gap-2 text-xs text-gray-400 transition hover:text-white sm:gap-2.5 sm:text-sm'
+									className='group flex flex-col items-center justify-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.04] px-2 py-3 text-[10px] text-gray-400 transition hover:border-indigo-400/30 hover:bg-white/[0.06] hover:text-white md:flex-row md:justify-start md:gap-2.5 md:rounded-none md:border-0 md:bg-transparent md:p-0 md:text-sm'
 								>
 									<span className='flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-gray-400 transition group-hover:border-indigo-400/30 group-hover:text-indigo-300 sm:h-7 sm:w-7'>
 										<PlatformIcon platform={social.platform} className='h-3 w-3 sm:h-3.5 sm:w-3.5' />
@@ -53,7 +53,7 @@ export function SiteFooter() {
 					</div>
 				</div>
 
-				<div className='mt-10 flex flex-col items-center justify-between gap-3 border-t border-white/[0.06] pt-6 text-xs text-gray-600 sm:flex-row'>
+				<div className='mt-10 hidden flex-col items-center justify-between gap-3 border-t border-white/[0.06] pt-6 text-xs text-gray-600 md:flex md:flex-row'>
 					<p>
 						<T k='footer.rights' vars={{ year: currentYear, name: siteConfig.name }} />
 					</p>

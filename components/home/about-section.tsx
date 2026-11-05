@@ -65,13 +65,13 @@ export async function AboutSection() {
 				/>
 			</Reveal>
 
-			<div className='mt-14 grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16'>
+			<div className='mt-14 grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16'>
 				<Reveal delay={0.1} direction='right' distance={70}>
 					<div className='relative mx-auto flex w-full max-w-sm items-center justify-center py-4'>
-						<div className='absolute h-[21rem] w-[21rem] rounded-full bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-transparent blur-3xl' />
-						<div className='absolute h-[20rem] w-[20rem] animate-spin-slow rounded-full border border-dashed border-white/10' />
+						<div className='absolute h-[16.8rem] w-[16.8rem] rounded-full bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-transparent blur-3xl sm:h-[21rem] sm:w-[21rem]' />
+						<div className='absolute h-[16rem] w-[16rem] animate-spin-slow rounded-full border border-dashed border-white/10 sm:h-[20rem] sm:w-[20rem]' />
 
-						<div className='group relative aspect-square w-full max-w-[21rem] rounded-full border border-white/15 bg-white/[0.04] p-2 shadow-[0_30px_90px_-40px_rgba(99,102,241,0.8)]'>
+						<div className='group relative aspect-square w-4/5 max-w-[19rem] rounded-full border border-white/15 bg-white/[0.04] p-2 shadow-[0_30px_90px_-40px_rgba(99,102,241,0.8)] sm:w-full'>
 							<div className='absolute inset-2 overflow-hidden rounded-full'>
 								<SafeImage
 									src='/profile.jpg'

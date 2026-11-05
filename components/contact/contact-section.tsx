@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertCircle, ArrowUpRight, CheckCircle2, Clock, Copy, Mail, MapPin, MessageSquare, Send, Sparkles, User } from "lucide-react";
+import { AlertCircle, ArrowUpRight, CheckCircle2, Copy, Mail, MapPin, MessageSquare, Send, Sparkles, User } from "lucide-react";
 import { useState } from "react";
 import { submitContactMessage } from "@/app/actions/contact";
 import { Button } from "@/components/ui/button";
@@ -172,10 +172,10 @@ export function ContactSection() {
 										{t("contact.emailMe")}
 										<ArrowUpRight className='h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5' />
 									</a>
-									<span className='inline-flex h-10 items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.03] px-3 text-[11px] text-gray-400'>
+									{/* <span className='inline-flex h-10 items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.03] px-3 text-[11px] text-gray-400'>
 										<Clock className='h-3.5 w-3.5 text-indigo-300' />
 										{t("contact.repliesIn")}
-									</span>
+									</span> */}
 								</div>
 							</div>
 						</div>
