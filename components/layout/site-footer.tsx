@@ -10,7 +10,7 @@ export function SiteFooter() {
 	return (
 		<footer className='relative mt-16 border-t border-white/[0.06] md:mt-24'>
 			<div className='section-shell py-8 md:py-12'>
-				<div className='hidden max-w-md text-left md:block'>
+				<div className='max-w-md text-left'>
 					<p className='text-sm font-semibold text-white'>{siteConfig.name}</p>
 					<a
 						href={`mailto:${siteConfig.email}`}
@@ -21,7 +21,7 @@ export function SiteFooter() {
 					</a>
 				</div>
 
-				<div className='grid grid-cols-2 gap-x-6 gap-y-8 md:mt-8 md:max-w-lg md:gap-x-12'>
+				<div className='mt-6 grid grid-cols-2 gap-x-6 gap-y-8 md:mt-8 md:max-w-lg md:gap-x-12'>
 					<div className='hidden min-w-0 md:block'>
 						<div className='grid grid-cols-1 gap-1.5 text-xs sm:text-sm'>
 							{siteConfig.nav.map((item) => (
@@ -40,12 +40,12 @@ export function SiteFooter() {
 									href={social.href}
 									target='_blank'
 									rel='noopener noreferrer'
-									className='group flex flex-col items-center justify-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.04] px-2 py-3 text-[10px] text-gray-400 transition hover:border-indigo-400/30 hover:bg-white/[0.06] hover:text-white md:flex-row md:justify-start md:gap-2.5 md:rounded-none md:border-0 md:bg-transparent md:p-0 md:text-sm'
+									className='group flex flex-col items-center justify-center gap-1.5 text-[10px] text-gray-400 transition hover:text-white md:flex-row md:justify-start md:gap-2.5 md:text-sm'
 								>
 									<span className='flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-gray-400 transition group-hover:border-indigo-400/30 group-hover:text-indigo-300 sm:h-7 sm:w-7'>
 										<PlatformIcon platform={social.platform} className='h-3 w-3 sm:h-3.5 sm:w-3.5' />
 									</span>
-									{social.label}
+									<span className='hidden md:inline'>{social.label}</span>
 									<ArrowUpRight className='hidden h-3 w-3 opacity-0 transition group-hover:opacity-100 md:inline' />
 								</a>
 							))}
