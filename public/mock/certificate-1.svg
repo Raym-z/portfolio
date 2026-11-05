@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 575" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="575">
+      <stop stop-color="#07071a"/>
+      <stop offset="1" stop-color="#130b2a"/>
+    </linearGradient>
+    <linearGradient id="a" x1="120" y1="80" x2="680" y2="500">
+      <stop stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#a855f7"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="35"/></filter>
+  </defs>
+  <rect width="800" height="575" fill="url(#bg)"/>
+  <circle cx="660" cy="80" r="150" fill="#6366f1" opacity=".2" filter="url(#blur)"/>
+  <circle cx="120" cy="500" r="150" fill="#a855f7" opacity=".18" filter="url(#blur)"/>
+  <rect x="34" y="34" width="732" height="507" rx="18" stroke="url(#a)" stroke-opacity=".55"/>
+  <rect x="48" y="48" width="704" height="479" rx="12" stroke="#ffffff" stroke-opacity=".08"/>
+  <circle cx="400" cy="150" r="34" fill="#6366f1" fill-opacity=".2" stroke="#818cf8" stroke-opacity=".6"/>
+  <path d="M386 150l10 10 20-22" stroke="#c7d2fe" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="400" y="230" text-anchor="middle" fill="#c7d2fe" font-family="system-ui, sans-serif" font-size="13" font-weight="600" letter-spacing="6">CERTIFICATE OF COMPLETION</text>
+  <text x="400" y="300" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="38" font-weight="700">Advanced React Patterns</text>
+  <text x="400" y="345" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="15">This certifies successful completion of the program</text>
+  <line x1="250" y1="390" x2="550" y2="390" stroke="#ffffff" stroke-opacity=".12"/>
+  <text x="400" y="432" text-anchor="middle" fill="#e9e6f5" font-family="system-ui, sans-serif" font-size="22" font-weight="600">Alex Morgan</text>
+  <text x="400" y="456" text-anchor="middle" fill="#818cf8" font-family="system-ui, sans-serif" font-size="11" letter-spacing="3">FRONTEND MASTERS</text>
+  <g transform="translate(620 440)">
+    <circle r="34" fill="#6366f1" fill-opacity=".15" stroke="#818cf8" stroke-opacity=".45"/>
+    <circle r="24" fill="none" stroke="#818cf8" stroke-opacity=".35"/>
+    <text y="4" text-anchor="middle" fill="#c7d2fe" font-family="system-ui, sans-serif" font-size="10" font-weight="700">2025</text>
+  </g>
+  <text x="110" y="470" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" letter-spacing="2">VERIFICATION ID: 8F2A-19C4</text>
+</svg>

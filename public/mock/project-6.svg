@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="450">
+      <stop stop-color="#080818"/>
+      <stop offset="1" stop-color="#150b26"/>
+    </linearGradient>
+    <linearGradient id="a" x1="120" y1="80" x2="680" y2="380">
+      <stop stop-color="#818cf8"/>
+      <stop offset="1" stop-color="#e879f9"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="55"/></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <circle cx="660" cy="110" r="180" fill="#e879f9" opacity=".14" filter="url(#blur)"/>
+  <circle cx="120" cy="380" r="180" fill="#818cf8" opacity=".18" filter="url(#blur)"/>
+  <g opacity=".14" stroke="#94a3b8">
+    <path d="M0 90h800M0 180h800M0 270h800M0 360h800"/>
+    <path d="M100 0v450M200 0v450M300 0v450M400 0v450M500 0v450M600 0v450M700 0v450"/>
+  </g>
+  <rect x="110" y="80" width="180" height="290" rx="20" fill="#ffffff" fill-opacity=".035" stroke="#ffffff" stroke-opacity=".1"/>
+  <rect x="140" y="112" width="100" height="10" rx="5" fill="#94a3b8" opacity=".45"/>
+  <rect x="140" y="145" width="120" height="7" rx="3.5" fill="#818cf8" opacity=".8"/>
+  <rect x="140" y="165" width="90" height="7" rx="3.5" fill="#94a3b8" opacity=".25"/>
+  <rect x="140" y="185" width="104" height="7" rx="3.5" fill="#94a3b8" opacity=".25"/>
+  <rect x="140" y="216" width="100" height="7" rx="3.5" fill="#94a3b8" opacity=".25"/>
+  <rect x="140" y="236" width="80" height="7" rx="3.5" fill="#94a3b8" opacity=".25"/>
+  <rect x="140" y="267" width="110" height="7" rx="3.5" fill="#94a3b8" opacity=".25"/>
+  <rect x="140" y="287" width="70" height="7" rx="3.5" fill="#94a3b8" opacity=".25"/>
+  <rect x="320" y="80" width="370" height="290" rx="20" fill="#0a0a20" stroke="#ffffff" stroke-opacity=".12"/>
+  <rect x="350" y="112" width="260" height="12" rx="6" fill="url(#a)"/>
+  <rect x="350" y="142" width="200" height="8" rx="4" fill="#94a3b8" opacity=".3"/>
+  <rect x="350" y="166" width="300" height="8" rx="4" fill="#94a3b8" opacity=".2"/>
+  <rect x="350" y="190" width="250" height="8" rx="4" fill="#94a3b8" opacity=".2"/>
+  <rect x="350" y="228" width="310" height="76" rx="12" fill="#6366f1" fill-opacity=".12" stroke="#818cf8" stroke-opacity=".35"/>
+  <text x="372" y="252" fill="#c7d2fe" font-family="ui-monospace, monospace" font-size="11">npm install signal-docs</text>
+  <rect x="372" y="270" width="140" height="7" rx="3.5" fill="#94a3b8" opacity=".28"/>
+  <rect x="372" y="284" width="90" height="7" rx="3.5" fill="#94a3b8" opacity=".2"/>
+  <rect x="350" y="322" width="140" height="34" rx="17" fill="#a855f7" fill-opacity=".14" stroke="#d8b4fe" stroke-opacity=".3"/>
+  <text x="374" y="344" fill="#e9d5ff" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Read docs</text>
+</svg>

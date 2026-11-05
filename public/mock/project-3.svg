@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="450">
+      <stop stop-color="#08081c"/>
+      <stop offset="1" stop-color="#0c1430"/>
+    </linearGradient>
+    <linearGradient id="a" x1="120" y1="80" x2="680" y2="380">
+      <stop stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="b" x1="300" y1="120" x2="500" y2="380">
+      <stop stop-color="#a855f7"/>
+      <stop offset="1" stop-color="#6366f1"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="55"/></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <circle cx="680" cy="90" r="180" fill="#22d3ee" opacity=".16" filter="url(#blur)"/>
+  <circle cx="160" cy="400" r="180" fill="#6366f1" opacity=".2" filter="url(#blur)"/>
+  <g opacity=".14" stroke="#94a3b8">
+    <path d="M0 90h800M0 180h800M0 270h800M0 360h800"/>
+    <path d="M100 0v450M200 0v450M300 0v450M400 0v450M500 0v450M600 0v450M700 0v450"/>
+  </g>
+  <rect x="90" y="85" width="620" height="280" rx="24" fill="#0a0a20" stroke="#ffffff" stroke-opacity=".12"/>
+  <rect x="130" y="125" width="150" height="10" rx="5" fill="#94a3b8" opacity=".45"/>
+  <rect x="130" y="152" width="90" height="8" rx="4" fill="#94a3b8" opacity=".22"/>
+  <g>
+    <rect x="130" y="195" width="120" height="130" rx="14" fill="#6366f1" fill-opacity=".18" stroke="#818cf8" stroke-opacity=".5"/>
+    <rect x="266" y="195" width="120" height="130" rx="14" fill="#ffffff" fill-opacity=".04" stroke="#ffffff" stroke-opacity=".1"/>
+    <rect x="402" y="195" width="120" height="130" rx="14" fill="#ffffff" fill-opacity=".04" stroke="#ffffff" stroke-opacity=".1"/>
+    <circle cx="190" cy="240" r="24" fill="url(#b)" opacity=".85"/>
+    <path d="M160 305h60" stroke="#94a3b8" stroke-opacity=".35" stroke-width="8" stroke-linecap="round"/>
+    <path d="M296 305h60" stroke="#94a3b8" stroke-opacity=".35" stroke-width="8" stroke-linecap="round"/>
+    <path d="M432 305h60" stroke="#94a3b8" stroke-opacity=".35" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <rect x="555" y="195" width="120" height="130" rx="14" fill="url(#a)" fill-opacity=".18" stroke="#22d3ee" stroke-opacity=".4"/>
+  <path d="M585 285l22-26 18 16 22-30" stroke="#22d3ee" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="552" y="125" width="126" height="32" rx="16" fill="#22d3ee" fill-opacity=".13" stroke="#22d3ee" stroke-opacity=".35"/>
+  <text x="573" y="146" fill="#a5f3fc" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Booking</text>
+</svg>

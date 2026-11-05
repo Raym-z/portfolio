@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="450">
+      <stop stop-color="#070b18"/>
+      <stop offset="1" stop-color="#0a1a2e"/>
+    </linearGradient>
+    <linearGradient id="a" x1="120" y1="90" x2="680" y2="380">
+      <stop stop-color="#34d399"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="55"/></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <circle cx="100" cy="80" r="170" fill="#34d399" opacity=".16" filter="url(#blur)"/>
+  <circle cx="700" cy="400" r="190" fill="#22d3ee" opacity=".16" filter="url(#blur)"/>
+  <g opacity=".14" stroke="#94a3b8">
+    <path d="M0 90h800M0 180h800M0 270h800M0 360h800"/>
+    <path d="M100 0v450M200 0v450M300 0v450M400 0v450M500 0v450M600 0v450M700 0v450"/>
+  </g>
+  <rect x="90" y="80" width="620" height="300" rx="24" fill="#0a0a20" stroke="#ffffff" stroke-opacity=".12"/>
+  <rect x="120" y="110" width="180" height="38" rx="12" fill="#34d399" fill-opacity=".12" stroke="#34d399" stroke-opacity=".35"/>
+  <text x="146" y="134" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="12" font-weight="600">INVENTORY</text>
+  <rect x="320" y="110" width="180" height="38" rx="12" fill="#ffffff" fill-opacity=".03" stroke="#ffffff" stroke-opacity=".1"/>
+  <text x="346" y="134" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">ORDERS</text>
+  <rect x="520" y="110" width="160" height="38" rx="12" fill="#ffffff" fill-opacity=".03" stroke="#ffffff" stroke-opacity=".1"/>
+  <text x="546" y="134" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">SUPPLIERS</text>
+  <g>
+    <rect x="120" y="178" width="560" height="56" rx="12" fill="#ffffff" fill-opacity=".035" stroke="#ffffff" stroke-opacity=".08"/>
+    <rect x="140" y="196" width="24" height="20" rx="5" fill="url(#a)" opacity=".8"/>
+    <rect x="178" y="197" width="180" height="8" rx="4" fill="#94a3b8" opacity=".4"/>
+    <rect x="178" y="212" width="110" height="6" rx="3" fill="#94a3b8" opacity=".22"/>
+    <rect x="590" y="194" width="66" height="24" rx="12" fill="#34d399" fill-opacity=".15"/>
+    <text x="607" y="210" fill="#6ee7b7" font-family="system-ui, sans-serif" font-size="10" font-weight="600">IN STOCK</text>
+  </g>
+  <g>
+    <rect x="120" y="245" width="560" height="56" rx="12" fill="#ffffff" fill-opacity=".035" stroke="#ffffff" stroke-opacity=".08"/>
+    <rect x="140" y="263" width="24" height="20" rx="5" fill="#6366f1" fill-opacity=".6"/>
+    <rect x="178" y="264" width="150" height="8" rx="4" fill="#94a3b8" opacity=".4"/>
+    <rect x="178" y="279" width="120" height="6" rx="3" fill="#94a3b8" opacity=".22"/>
+    <rect x="590" y="261" width="66" height="24" rx="12" fill="#fbbf24" fill-opacity=".15"/>
+    <text x="612" y="277" fill="#fcd34d" font-family="system-ui, sans-serif" font-size="10" font-weight="600">LOW</text>
+  </g>
+  <g>
+    <rect x="120" y="312" width="560" height="44" rx="12" fill="#ffffff" fill-opacity=".02" stroke="#ffffff" stroke-opacity=".06"/>
+    <rect x="140" y="326" width="140" height="8" rx="4" fill="#94a3b8" opacity=".25"/>
+    <rect x="590" y="326" width="66" height="8" rx="4" fill="#94a3b8" opacity=".2"/>
+  </g>
+</svg>

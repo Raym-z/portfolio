@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 575" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="575">
+      <stop stop-color="#090719"/>
+      <stop offset="1" stop-color="#1a0b24"/>
+    </linearGradient>
+    <linearGradient id="a" x1="120" y1="80" x2="680" y2="500">
+      <stop stop-color="#f472b6"/>
+      <stop offset="1" stop-color="#a855f7"/>
+    </linearGradient>
+    <linearGradient id="art1" x1="330" y1="92" x2="470" y2="192">
+      <stop stop-color="#f472b6"/>
+      <stop offset="1" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="art2" x1="330" y1="92" x2="470" y2="192">
+      <stop stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#a855f7"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="35"/></filter>
+  </defs>
+  <rect width="800" height="575" fill="url(#bg)"/>
+  <circle cx="670" cy="100" r="170" fill="#f472b6" opacity=".16" filter="url(#blur)"/>
+  <circle cx="140" cy="490" r="160" fill="#a855f7" opacity=".17" filter="url(#blur)"/>
+  <rect x="34" y="34" width="732" height="507" rx="18" stroke="url(#a)" stroke-opacity=".55"/>
+  <rect x="48" y="48" width="704" height="479" rx="12" stroke="#ffffff" stroke-opacity=".08"/>
+
+  <g transform="translate(400 144)">
+    <rect x="-62" y="-48" width="60" height="92" rx="12" fill="url(#art1)" fill-opacity=".35" stroke="#f9a8d4" stroke-opacity=".4"/>
+    <rect x="2" y="-48" width="60" height="92" rx="12" fill="url(#art2)" fill-opacity=".35" stroke="#67e8f9" stroke-opacity=".4"/>
+    <circle cx="-32" cy="-10" r="13" fill="#fbcfe8" fill-opacity=".7"/>
+    <circle cx="32" cy="-10" r="13" fill="#a5f3fc" fill-opacity=".7"/>
+    <path d="M-16 24h32" stroke="#e9e6f5" stroke-opacity=".5" stroke-width="4" stroke-linecap="round"/>
+    <path d="M-56 56h112" stroke="#e9e6f5" stroke-opacity=".15" stroke-width="2"/>
+  </g>
+
+  <text x="400" y="228" text-anchor="middle" fill="#fbcfe8" font-family="system-ui, sans-serif" font-size="12" font-weight="600" letter-spacing="5">RESEARCH PUBLICATION</text>
+  <text x="400" y="284" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="31" font-weight="700">Navigating the Ethics of</text>
+  <text x="400" y="322" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="31" font-weight="700">AI-Generated Artworks</text>
+  <text x="400" y="360" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="31" font-weight="700">Through Style Transfer Detection</text>
+
+  <line x1="220" y1="398" x2="580" y2="398" stroke="#ffffff" stroke-opacity=".12"/>
+  <text x="400" y="436" text-anchor="middle" fill="#e9e6f5" font-family="system-ui, sans-serif" font-size="18" font-weight="600">Tanumihardja, R. W., et al.</text>
+  <text x="400" y="464" text-anchor="middle" fill="#f9a8d4" font-family="system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="3">CENIM 2025</text>
+
+  <g transform="translate(620 450)">
+    <circle r="34" fill="#f472b6" fill-opacity=".12" stroke="#f472b6" stroke-opacity=".45"/>
+    <circle r="24" fill="none" stroke="#f472b6" stroke-opacity=".35"/>
+    <text y="4" text-anchor="middle" fill="#fbcfe8" font-family="system-ui, sans-serif" font-size="10" font-weight="700">2025</text>
+  </g>
+  <text x="110" y="470" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" letter-spacing="2">COMPUTER VISION · RESNET · AI ETHICS</text>
+</svg>
