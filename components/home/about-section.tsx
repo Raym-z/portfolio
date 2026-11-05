@@ -98,9 +98,9 @@ export async function AboutSection() {
 						<div className='absolute h-[21rem] w-[21rem] rounded-full bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-transparent blur-3xl' />
 						<div className='absolute h-[20rem] w-[20rem] animate-spin-slow rounded-full border border-dashed border-white/10' />
 
-						<div className='group relative aspect-square w-full max-w-[21rem] overflow-hidden rounded-full border border-white/15 bg-white/[0.04] p-2 shadow-[0_30px_90px_-40px_rgba(99,102,241,0.8)]'>
-							<div className='relative h-full w-full overflow-hidden rounded-full'>
-								<SafeImage src='/profile.jpg' alt={`${siteConfig.name} portrait`} sizes='(max-width: 1024px) 80vw, 336px' className='transition-transform duration-700 group-hover:scale-105' />
+						<div className='group relative aspect-square w-full max-w-[21rem] rounded-full border border-white/15 bg-white/[0.04] p-2 shadow-[0_30px_90px_-40px_rgba(99,102,241,0.8)]'>
+							<div className='absolute inset-2 overflow-hidden rounded-full'>
+								<SafeImage src='/profile.jpg' alt={`${siteConfig.name} portrait`} sizes='(max-width: 1024px) 80vw, 336px' className='object-center transition-transform duration-700 sm:group-hover:scale-105' />
 								<div className='pointer-events-none absolute inset-0 bg-gradient-to-t from-[#030014]/75 via-transparent to-transparent' />
 								<div className='absolute inset-x-0 bottom-6 flex justify-center'>
 									<Badge variant='green' className='gap-1.5 border-emerald-400/30 bg-[#04140f]/80 backdrop-blur'>
