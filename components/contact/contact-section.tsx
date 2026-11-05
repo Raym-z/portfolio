@@ -183,7 +183,7 @@ export function ContactSection() {
 
 					<Reveal delay={0.12} direction='right' distance={80}>
 						<div className='rounded-2xl border border-white/10 bg-white/[0.03] p-5 sm:p-6'>
-							<div className='flex items-center justify-between'>
+							<div className='flex items-center justify-start gap-2'>
 								<Sparkles className='h-4 w-4 text-purple-400' />
 								<h3 className='text-sm font-semibold text-white'>{t("contact.findMeElsewhere")}</h3>
 							</div>
