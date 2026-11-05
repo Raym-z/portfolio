@@ -3,7 +3,6 @@
 import { AlertCircle, ArrowUpRight, CheckCircle2, Clock, Copy, Mail, MapPin, MessageSquare, Send, Sparkles, User } from "lucide-react";
 import { useState } from "react";
 import { submitContactMessage } from "@/app/actions/contact";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Field, Input, Textarea } from "@/components/ui/field";
 import { PlatformIcon } from "@/components/ui/platform-icon";
