@@ -11,7 +11,7 @@ A dark, modern personal portfolio built with Next.js 16 (App Router), TypeScript
 - Public guestbook with avatar upload, pinned comments, and Supabase Realtime
 - Contact form persisted to Supabase plus email/social links
 - Protected admin dashboard with overview, project CRUD, image uploads, publish/order controls, certificate management, comment moderation, and a contact inbox
-- Mock data fallback when Supabase is not configured
+- Empty content states when Supabase is not configured or has no published content
 
 ## Getting started
 
@@ -32,6 +32,21 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=
 If these variables are missing, the public site renders empty content states. Admin login and mutations stay disabled until Supabase is configured. See [SUPABASE_SETUP.md](./SUPABASE_SETUP.md) for the tables, buckets, RLS policies, Realtime setup, and admin promotion steps.
 
 After applying the schema, run [SEED_CONTENT.sql](./SEED_CONTENT.sql) in the Supabase SQL editor to load Raymond's starter projects and publications. It only inserts content; it does not change the schema or RLS.
+
+## Keeping Supabase awake
+
+Free Supabase projects pause after a week of low database activity. The `/api/health` route performs three small PostgREST reads (`projects`, `certificates`, and `comments`) so a scheduled request counts as real database activity. Requests are never cached.
+
+1. Set `CRON_SECRET` in your production environment variables.
+2. Deploy the app.
+3. Create a [cron-job.org](https://cron-job.org) job:
+   - **URL:** `https://your-domain.com/api/health`
+   - **Schedule:** every 6 or 12 hours
+   - **Custom header:** `Authorization: Bearer <CRON_SECRET>`
+   - Enable failure notifications so you know if the project stops responding.
+4. Run the job once manually and confirm it returns `{ "ok": true }`.
+
+If custom headers are unavailable in your scheduler, use `https://your-domain.com/api/health?token=<CRON_SECRET>` instead. Do not ping `/auth/v1/health`: it can return `200` without querying Postgres, so it does not reset Supabase's inactivity timer.
 
 ## Personalization
 
