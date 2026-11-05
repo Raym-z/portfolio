@@ -108,15 +108,7 @@ export function ContactSection() {
 							</div>
 
 							<Field label={t("contact.message")} required hint={`${form.message.length}/2000`} className='flex flex-1 flex-col'>
-								<Textarea
-									value={form.message}
-									onChange={update("message")}
-									placeholder={t("contact.messagePlaceholder")}
-									rows={6}
-									maxLength={2000}
-									className='flex-1'
-									required
-								/>
+								<Textarea value={form.message} onChange={update("message")} placeholder={t("contact.messagePlaceholder")} rows={6} maxLength={2000} className='flex-1' required />
 							</Field>
 
 							<div className='hidden' aria-hidden='true'>
@@ -171,7 +163,7 @@ export function ContactSection() {
 									</button>
 								</div>
 
-								<div className='mt-3 flex flex-wrap gap-2'>
+								<div className='mt-3 flex flex-wrap justify-center gap-2 sm:justify-start'>
 									<a
 										href={`mailto:${siteConfig.email}`}
 										className='group inline-flex h-10 items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 px-4 text-xs font-semibold text-white transition hover:brightness-110'
@@ -192,8 +184,8 @@ export function ContactSection() {
 					<Reveal delay={0.12} direction='right' distance={80}>
 						<div className='rounded-2xl border border-white/10 bg-white/[0.03] p-5 sm:p-6'>
 							<div className='flex items-center justify-between'>
-								<h3 className='text-sm font-semibold text-white'>{t("contact.findMeElsewhere")}</h3>
 								<Sparkles className='h-4 w-4 text-purple-400' />
+								<h3 className='text-sm font-semibold text-white'>{t("contact.findMeElsewhere")}</h3>
 							</div>
 							<div className='mt-4 grid gap-2 sm:grid-cols-2'>
 								{siteConfig.socials.map((social) => (
@@ -222,7 +214,7 @@ export function ContactSection() {
 								))}
 							</div>
 
-							<div className='mt-4 flex items-center gap-2 border-t border-white/[0.07] pt-4 text-[11px] text-gray-500'>
+							<div className='mt-4 flex items-center justify-center gap-2 border-t border-white/[0.07] pt-4 text-[11px] text-gray-500 sm:justify-start'>
 								<MapPin className='h-3.5 w-3.5 text-indigo-400' />
 								{t("contact.location")}
 							</div>

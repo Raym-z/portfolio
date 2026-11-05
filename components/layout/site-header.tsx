@@ -101,11 +101,23 @@ export function SiteHeader() {
 		<header
 			className={cn(
 				"fixed inset-x-0 top-0 z-50 transition-all duration-500",
-				open ? "bg-[#05051a]/95 backdrop-blur-2xl" : scrolled ? "border-b border-white/[0.06] bg-[#030014]/75 backdrop-blur-2xl" : "bg-transparent",
+				open
+					? "bg-[#05051a]/95 backdrop-blur-2xl"
+					: scrolled
+						? "max-lg:pointer-events-none max-lg:bg-transparent lg:border-b lg:border-white/[0.06] lg:bg-[#030014]/75 lg:backdrop-blur-2xl"
+						: "bg-transparent",
 			)}
 		>
 			<div className='section-shell flex h-16 items-center justify-between gap-4'>
-				<Link href='/' onClick={() => setOpen(false)} className='group flex items-center gap-2.5' aria-label={`${siteConfig.name} home`}>
+				<Link
+					href='/'
+					onClick={() => setOpen(false)}
+					className={cn(
+						"group flex items-center gap-2.5 transition-all duration-300",
+						scrolled && "max-lg:pointer-events-none max-lg:-translate-y-2 max-lg:opacity-0",
+					)}
+					aria-label={`${siteConfig.name} home`}
+				>
 					<span className='max-w-[160px] truncate text-sm font-semibold tracking-tight text-white sm:max-w-[240px]'>{siteConfig.name}</span>
 				</Link>
 
@@ -149,13 +161,18 @@ export function SiteHeader() {
 				</div>
 
 				<div className='flex items-center gap-2 lg:hidden'>
-					<LocaleToggle />
+					<LocaleToggle
+						className={cn(
+							"transition-all duration-300",
+							scrolled && "pointer-events-none -translate-y-2 opacity-0",
+						)}
+					/>
 					<button
 						type='button'
 						onClick={() => setOpen((value) => !value)}
 						aria-label={open ? t("nav.closeMenu") : t("nav.openMenu")}
 						aria-expanded={open}
-						className='flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-gray-300 transition hover:text-white'
+						className='pointer-events-auto flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-gray-300 backdrop-blur transition hover:text-white'
 					>
 						{open ? <X className='h-5 w-5' /> : <Menu className='h-5 w-5' />}
 					</button>

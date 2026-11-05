@@ -10,44 +10,30 @@ export function SiteFooter() {
 	return (
 		<footer className='relative mt-24 border-t border-white/[0.06]'>
 			<div className='section-shell py-12'>
-				<div className='grid grid-cols-[1.15fr_1fr_1fr] gap-x-3 gap-y-8 md:grid-cols-[1.4fr_1fr_1fr] md:gap-10'>
-					<div className='min-w-0 max-w-sm'>
-						<div className='flex items-center gap-2'>
-							{/* <span className='flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-white/15 bg-gradient-to-br from-indigo-500/30 to-purple-500/20 text-[11px] font-bold text-white'>
-								{siteConfig.initials}
-							</span> */}
-							<span className='text-[11px] font-semibold leading-tight text-white sm:text-sm'>{siteConfig.name}</span>
-						</div>
-						<a
-							href={`mailto:${siteConfig.email}`}
-							className='mt-3 inline-flex items-start gap-1 text-[10px] leading-relaxed break-all text-indigo-300 transition hover:text-indigo-200 sm:mt-4 sm:text-sm'
-						>
-							{siteConfig.email}
-							<ArrowUpRight className='mt-0.5 hidden h-3 w-3 shrink-0 sm:inline' />
-						</a>
-					</div>
+				<div className='mx-auto max-w-md text-center'>
+					<p className='text-sm font-semibold text-white'>{siteConfig.name}</p>
+					<a
+						href={`mailto:${siteConfig.email}`}
+						className='mt-1.5 inline-flex items-center justify-center gap-1 text-xs text-indigo-300 transition hover:text-indigo-200'
+					>
+						{siteConfig.email}
+						<ArrowUpRight className='h-3 w-3' />
+					</a>
+				</div>
 
+				<div className='mx-auto mt-8 grid max-w-md grid-cols-2 gap-x-6 gap-y-8 md:max-w-lg md:gap-x-12'>
 					<div className='min-w-0'>
-						<p className='text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-500 sm:text-[11px] sm:tracking-[0.18em]'>
-							<T k='footer.explore' />
-						</p>
-						<div className='mt-3 grid grid-cols-1 gap-1.5 text-xs sm:mt-4 sm:text-sm md:grid-cols-2 md:gap-2'>
+						<div className='grid grid-cols-1 gap-1.5 text-xs sm:text-sm md:grid-cols-2 md:gap-2'>
 							{siteConfig.nav.map((item) => (
 								<Link key={item.href} href={`/${item.href}`} className='text-gray-400 transition hover:text-white'>
 									<T k={item.labelKey} />
 								</Link>
 							))}
-							<Link href='/projects' className='text-gray-400 transition hover:text-white'>
-								<T k='common.allProjects' />
-							</Link>
 						</div>
 					</div>
 
 					<div className='min-w-0'>
-						<p className='text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-500 sm:text-[11px] sm:tracking-[0.18em]'>
-							<T k='footer.elsewhere' />
-						</p>
-						<div className='mt-3 space-y-2 sm:mt-4 sm:space-y-2.5'>
+						<div className='space-y-2 sm:space-y-2.5'>
 							{siteConfig.socials.map((social) => (
 								<a
 									key={social.platform}
