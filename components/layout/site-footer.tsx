@@ -10,20 +10,20 @@ export function SiteFooter() {
 	return (
 		<footer className='relative mt-24 border-t border-white/[0.06]'>
 			<div className='section-shell py-12'>
-				<div className='mx-auto max-w-md text-center'>
+				<div className='max-w-md text-left'>
 					<p className='text-sm font-semibold text-white'>{siteConfig.name}</p>
 					<a
 						href={`mailto:${siteConfig.email}`}
-						className='mt-1.5 inline-flex items-center justify-center gap-1 text-xs text-indigo-300 transition hover:text-indigo-200'
+						className='mt-1.5 inline-flex items-center gap-1 text-xs text-indigo-300 transition hover:text-indigo-200'
 					>
 						{siteConfig.email}
 						<ArrowUpRight className='h-3 w-3' />
 					</a>
 				</div>
 
-				<div className='mx-auto mt-8 grid max-w-md grid-cols-2 gap-x-6 gap-y-8 md:max-w-lg md:gap-x-12'>
+				<div className='mt-8 grid max-w-md grid-cols-2 gap-x-6 gap-y-8 md:max-w-lg md:gap-x-12'>
 					<div className='min-w-0'>
-						<div className='grid grid-cols-1 gap-1.5 text-xs sm:text-sm md:grid-cols-2 md:gap-2'>
+						<div className='grid grid-cols-1 gap-1.5 text-xs sm:text-sm'>
 							{siteConfig.nav.map((item) => (
 								<Link key={item.href} href={`/${item.href}`} className='text-gray-400 transition hover:text-white'>
 									<T k={item.labelKey} />
