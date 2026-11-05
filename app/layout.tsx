@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
 
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 					{`if ("scrollRestoration" in history) { history.scrollRestoration = "manual"; }`}
 				</Script>
 				{children}
+				<Analytics />
 			</body>
 		</html>
 	);
