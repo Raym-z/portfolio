@@ -29,11 +29,9 @@ NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 ```
 
-If these variables are missing, the public site renders demo content. Admin login and mutations stay disabled until Supabase is configured. See [SUPABASE_SETUP.md](./SUPABASE_SETUP.md) for the tables, buckets, RLS policies, Realtime setup, and admin promotion steps.
+If these variables are missing, the public site renders empty content states. Admin login and mutations stay disabled until Supabase is configured. See [SUPABASE_SETUP.md](./SUPABASE_SETUP.md) for the tables, buckets, RLS policies, Realtime setup, and admin promotion steps.
 
 After applying the schema, run [SEED_CONTENT.sql](./SEED_CONTENT.sql) in the Supabase SQL editor to load Raymond's starter projects and publications. It only inserts content; it does not change the schema or RLS.
-
-While the tables are completely empty, the public site falls back to the same bundled starter content so it never looks unfinished. Set `USE_STARTER_CONTENT=false` to show empty states instead. Once you add or seed any rows, Supabase becomes the source of truth.
 
 ## Personalization
 

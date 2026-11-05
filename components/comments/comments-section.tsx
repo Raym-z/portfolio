@@ -257,7 +257,7 @@ export function CommentsSection() {
       </Reveal>
 
       <div className="mt-10 grid gap-5 lg:grid-cols-[1fr_0.9fr]">
-        <Reveal direction="left" distance={80}>
+        <Reveal direction="left" distance={80} className="min-w-0">
           <div className="rounded-2xl border border-white/10 bg-white/[0.035] p-5 backdrop-blur-xl sm:p-6">
             <div className="flex items-center gap-2.5">
               <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-indigo-400/20 bg-indigo-500/15">
@@ -371,8 +371,8 @@ export function CommentsSection() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.1} direction="right" distance={80}>
-          <div className="rounded-2xl border border-white/10 bg-white/[0.025] p-5 backdrop-blur-xl sm:p-6">
+        <Reveal delay={0.1} direction="right" distance={80} className="relative min-w-0">
+          <div className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.025] p-5 backdrop-blur-xl sm:p-6 lg:absolute lg:inset-0 lg:h-full">
             <div className="flex items-center justify-between">
               <h3 className="flex items-center gap-2 text-sm font-semibold text-white">
                 <MessageCircle className="h-4 w-4 text-indigo-300" />
@@ -392,7 +392,7 @@ export function CommentsSection() {
               </div>
             )}
 
-            <div className="mt-4 max-h-[34rem] space-y-3 overflow-y-auto pr-1">
+            <div className="mt-4 max-h-[34rem] space-y-3 overflow-y-auto pr-1 lg:min-h-0 lg:max-h-none lg:flex-1">
               {loading ? (
                 Array.from({ length: 3 }).map((_, index) => (
                   <Skeleton key={index} className="h-24 w-full" />

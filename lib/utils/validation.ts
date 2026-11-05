@@ -1,16 +1,22 @@
 import { z } from "zod";
+import { containsProfanity } from "@/lib/utils/profanity";
+
+const respectful = (message: string) =>
+  z.string().refine((value) => !containsProfanity(value), { message });
 
 export const commentSchema = z.object({
   userName: z
     .string()
     .trim()
     .min(2, "Name must be at least 2 characters.")
-    .max(40, "Name must be 40 characters or fewer."),
+    .max(40, "Name must be 40 characters or fewer.")
+    .pipe(respectful("Please keep your name respectful.")),
   content: z
     .string()
     .trim()
     .min(2, "Message must be at least 2 characters.")
-    .max(500, "Message must be 500 characters or fewer."),
+    .max(500, "Message must be 500 characters or fewer.")
+    .pipe(respectful("Please remove inappropriate language from your message.")),
 });
 
 export const contactSchema = z.object({

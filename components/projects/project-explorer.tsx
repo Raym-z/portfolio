@@ -80,7 +80,7 @@ export function ProjectExplorer({ projects }: { projects: Project[] }) {
 						const fromLeft = (Math.floor(index / 2) + (index % 2)) % 2 === 0;
 
 						return (
-							<Reveal key={project.id} direction={fromLeft ? "left" : "right"} distance={120} delay={(index % 2) * 0.08} once={false} className='h-full'>
+							<Reveal key={project.id} direction={fromLeft ? "left" : "right"} distance={120} delay={(index % 2) * 0.08} once={false} className='h-full min-w-0'>
 								<ProjectCard project={project} onOpen={setSelected} />
 							</Reveal>
 						);

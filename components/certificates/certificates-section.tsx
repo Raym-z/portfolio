@@ -27,7 +27,7 @@ export async function CertificatesSection() {
               Published <span className="text-gradient">research</span>
             </>
           }
-          description="Peer-reviewed work on machine learning and AI-generated media, plus selected credentials. Click a card to open its publication or view it full size."
+          description="Peer-reviewed work on machine learning and AI-generated media, plus selected credentials. Click a card to open its publication or view the certificate."
         />
       </Reveal>
 

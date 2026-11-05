@@ -1,5 +1,6 @@
 import { Globe, Mail, type LucideIcon } from "lucide-react";
 import {
+  DiscordIcon,
   GithubIcon,
   InstagramIcon,
   LinkedinIcon,
@@ -13,6 +14,7 @@ const brandIcons: Record<
   github: GithubIcon,
   linkedin: LinkedinIcon,
   instagram: InstagramIcon,
+  discord: DiscordIcon,
   x: XIcon,
   twitter: XIcon,
 };

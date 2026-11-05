@@ -2,13 +2,12 @@
 
 import { getBrowserClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/site-config";
-import { mockComments } from "@/lib/mock-data";
 import { mapComment } from "@/lib/services/mappers";
 import type { Comment } from "@/types";
 import type { RealtimeChannel } from "@supabase/supabase-js";
 
 export async function fetchComments(): Promise<Comment[]> {
-  if (!isSupabaseConfigured) return mockComments;
+  if (!isSupabaseConfigured) return [];
 
   const supabase = getBrowserClient();
   if (!supabase) return [];

@@ -6,7 +6,6 @@ import {
   createServerSupabaseClient,
 } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/site-config";
-import { mockProjects } from "@/lib/mock-data";
 import { mapProject } from "@/lib/services/mappers";
 import type { Project, ProjectInput } from "@/types";
 
@@ -15,17 +14,13 @@ type ProjectFeed = {
   total: number;
 };
 
-function starterContentEnabled() {
-  return process.env.USE_STARTER_CONTENT !== "false";
-}
-
 async function getProjectFeed(): Promise<ProjectFeed> {
   "use cache";
   cacheLife("minutes");
   cacheTag("projects");
 
   if (!isSupabaseConfigured) {
-    return { published: mockProjects, total: mockProjects.length };
+    return { published: [], total: 0 };
   }
 
   const supabase = createPublicSupabaseClient();
@@ -57,26 +52,16 @@ async function getProjectFeed(): Promise<ProjectFeed> {
   };
 }
 
-function withStarterProjects(feed: ProjectFeed): Project[] {
-  if (feed.total === 0 && starterContentEnabled()) {
-    return mockProjects.filter((project) => project.published);
-  }
-
-  return feed.published;
-}
-
 export async function getPublishedProjects(): Promise<Project[]> {
   const feed = await getProjectFeed();
-  return withStarterProjects(feed);
+  return feed.published;
 }
 
 export async function getPublishedProjectBySlug(
   slug: string,
 ): Promise<Project | null> {
   const feed = await getProjectFeed();
-  return (
-    withStarterProjects(feed).find((project) => project.slug === slug) ?? null
-  );
+  return feed.published.find((project) => project.slug === slug) ?? null;
 }
 
 export async function getAdminProjects(): Promise<Project[]> {

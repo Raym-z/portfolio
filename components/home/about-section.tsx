@@ -27,6 +27,7 @@ export async function AboutSection() {
 			description: "Selected work across products and tools",
 			icon: FolderGit2,
 			accent: "from-indigo-500/25 to-transparent",
+			showPlus: true,
 		},
 		{
 			label: "Research & credentials",
@@ -34,6 +35,7 @@ export async function AboutSection() {
 			description: "Peer-reviewed papers and certifications",
 			icon: Award,
 			accent: "from-purple-500/25 to-transparent",
+			showPlus: false,
 		},
 		{
 			label: "Years building",
@@ -41,6 +43,7 @@ export async function AboutSection() {
 			description: "From first project to production systems",
 			icon: Timer,
 			accent: "from-cyan-500/20 to-transparent",
+			showPlus: true,
 		},
 	];
 
@@ -121,7 +124,7 @@ export async function AboutSection() {
 								</div>
 								<span className='text-3xl font-bold tracking-tight text-white'>
 									{stat.value}
-									{stat.value > 0 && <span className='text-indigo-400'>+</span>}
+									{stat.value > 0 && stat.showPlus && <span className='text-indigo-400'>+</span>}
 								</span>
 							</div>
 							<div className='relative mt-4'>

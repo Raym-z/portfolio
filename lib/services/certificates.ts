@@ -6,7 +6,6 @@ import {
   createServerSupabaseClient,
 } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/site-config";
-import { mockCertificates } from "@/lib/mock-data";
 import { mapCertificate } from "@/lib/services/mappers";
 import type { Certificate } from "@/types";
 
@@ -15,17 +14,13 @@ type CertificateFeed = {
   total: number;
 };
 
-function starterContentEnabled() {
-  return process.env.USE_STARTER_CONTENT !== "false";
-}
-
 async function getCertificateFeed(): Promise<CertificateFeed> {
   "use cache";
   cacheLife("minutes");
   cacheTag("certificates");
 
   if (!isSupabaseConfigured) {
-    return { items: mockCertificates, total: mockCertificates.length };
+    return { items: [], total: 0 };
   }
 
   const supabase = createPublicSupabaseClient();
@@ -58,11 +53,6 @@ async function getCertificateFeed(): Promise<CertificateFeed> {
 
 export async function getCertificates(): Promise<Certificate[]> {
   const feed = await getCertificateFeed();
-
-  if (feed.total === 0 && starterContentEnabled()) {
-    return mockCertificates;
-  }
-
   return feed.items;
 }
 

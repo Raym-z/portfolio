@@ -118,6 +118,12 @@ export const siteConfig = {
       handle: "raymond.w.t",
       href: "https://www.instagram.com/raymond.w.t",
     },
+    {
+      platform: "Discord",
+      label: "Discord",
+      handle: "raym._.",
+      href: "https://discord.com/users/raym._.",
+    },
   ],
   stats: {
     experienceSince: 2022,

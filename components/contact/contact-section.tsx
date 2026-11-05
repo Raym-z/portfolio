@@ -78,7 +78,7 @@ export function ContactSection() {
 			</Reveal>
 
 			<div className='mt-10 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]'>
-				<Reveal direction='left' distance={80}>
+				<Reveal direction='left' distance={80} className='min-w-0'>
 					<div className='rounded-2xl border border-white/10 bg-white/[0.035] p-5 backdrop-blur-xl sm:p-7'>
 						<div className='flex items-start justify-between gap-4'>
 							<div>
@@ -145,7 +145,7 @@ export function ContactSection() {
 					</div>
 				</Reveal>
 
-				<div className='space-y-5'>
+				<div className='min-w-0 space-y-5'>
 					<Reveal delay={0.06} direction='right' distance={80}>
 						<div className='relative overflow-hidden rounded-2xl border border-indigo-400/20 bg-gradient-to-br from-indigo-500/[0.12] via-[#08081b] to-purple-500/[0.09] p-5 sm:p-6'>
 							<div className='absolute -right-10 -top-10 h-32 w-32 rounded-full bg-indigo-500/20 blur-3xl' />

@@ -2,12 +2,11 @@ import "server-only";
 
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/site-config";
-import { mockComments } from "@/lib/mock-data";
 import { mapComment } from "@/lib/services/mappers";
 import type { Comment } from "@/types";
 
 export async function getAdminComments(): Promise<Comment[]> {
-  if (!isSupabaseConfigured) return mockComments;
+  if (!isSupabaseConfigured) return [];
 
   const supabase = await createServerSupabaseClient();
   if (!supabase) return [];

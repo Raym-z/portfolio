@@ -5,7 +5,6 @@ import {
   createServerSupabaseClient,
 } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/site-config";
-import { mockMessages } from "@/lib/mock-data";
 import { mapMessage } from "@/lib/services/mappers";
 import type { ContactMessage } from "@/types";
 
@@ -28,7 +27,7 @@ export async function insertContactMessage(input: {
 }
 
 export async function getAdminMessages(): Promise<ContactMessage[]> {
-  if (!isSupabaseConfigured) return mockMessages;
+  if (!isSupabaseConfigured) return [];
 
   const supabase = await createServerSupabaseClient();
   if (!supabase) return [];

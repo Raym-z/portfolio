@@ -165,7 +165,7 @@ export function LoginForm() {
 
 					<Button type='submit' size='lg' className='w-full' loading={loading} disabled={!isSupabaseConfigured} icon={<Lock className='h-4 w-4' />}>
 						{loading ? "Signing in..." : "Sign in"}
-						<ArrowRight className='ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5' />
+						{/* <ArrowRight className='ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5' /> */}
 					</Button>
 				</form>
 
