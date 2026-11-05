@@ -5,7 +5,6 @@ import { ArrowRight, Mail, MousePointer2, Sparkles } from "lucide-react";
 import { DeveloperIllustration } from "@/components/home/developer-illustration";
 import { Badge } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button";
-import { PlatformIcon } from "@/components/ui/platform-icon";
 import { useMemo } from "react";
 import { useTypewriter } from "@/hooks/use-typewriter";
 import { siteConfig } from "@/lib/site-config";
@@ -65,11 +64,11 @@ export function Hero() {
 						))}
 					</motion.div>
 
-					<motion.div variants={fadeUp} transition={{ duration: 0.6 }} className='mt-8 flex flex-wrap items-center gap-3'>
-						<ButtonLink href='#projects' size='lg' icon={<ArrowRight className='h-4 w-4 transition-transform group-hover:translate-x-1' />}>
+					<motion.div variants={fadeUp} transition={{ duration: 0.6 }} className='mt-8 flex items-center gap-2 sm:flex-wrap sm:gap-3'>
+						<ButtonLink href='#projects' size='lg' className='min-w-0 flex-1 gap-2 whitespace-nowrap px-4 text-xs sm:flex-none sm:gap-2.5 sm:px-7 sm:text-sm' icon={<ArrowRight className='h-4 w-4 transition-transform group-hover:translate-x-1' />}>
 							{t("common.viewProjects")}
 						</ButtonLink>
-						<ButtonLink href='#contact' variant='secondary' size='lg' icon={<Mail className='h-4 w-4' />}>
+						<ButtonLink href='#contact' variant='secondary' size='lg' className='min-w-0 flex-1 gap-2 whitespace-nowrap px-4 text-xs sm:flex-none sm:gap-2.5 sm:px-7 sm:text-sm' icon={<Mail className='h-4 w-4' />}>
 							{t("hero.contactMe")}
 						</ButtonLink>
 						{/* <Link
@@ -81,7 +80,7 @@ export function Hero() {
             </Link> */}
 					</motion.div>
 
-					<motion.div variants={fadeUp} transition={{ duration: 0.6 }} className='mt-8 flex items-center gap-2.5'>
+					{/* <motion.div variants={fadeUp} transition={{ duration: 0.6 }} className='mt-8 flex items-center gap-2.5'>
 						<span className='text-[11px] uppercase tracking-[0.18em] text-gray-600'>{t("hero.findMe")}</span>
 						<span className='h-px w-6 bg-white/10' />
 						{siteConfig.socials.map((social) => (
@@ -97,7 +96,7 @@ export function Hero() {
 								<PlatformIcon platform={social.platform} className='relative h-4 w-4' />
 							</a>
 						))}
-					</motion.div>
+					</motion.div> */}
 				</motion.div>
 
 				<motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.25 }} className='order-2 lg:pl-6'>
