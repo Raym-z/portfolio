@@ -36,7 +36,8 @@ import type { Project, ProjectInput } from "@/types";
 
 type FormValues = {
   title: string;
-  description: string;
+  descriptionId: string;
+  descriptionEn: string;
   techStack: string;
   features: string;
   liveUrl: string;
@@ -68,7 +69,8 @@ function ProjectForm({
 }) {
   const [values, setValues] = useState<FormValues>({
     title: project?.title ?? "",
-    description: project?.description ?? "",
+    descriptionId: project?.descriptionId ?? "",
+    descriptionEn: project?.descriptionEn ?? "",
     techStack: project?.techStack.join(", ") ?? "",
     features: project?.features.join(", ") ?? "",
     liveUrl: project?.liveUrl ?? "",
@@ -130,7 +132,8 @@ function ProjectForm({
 
     const input: ProjectInput = {
       title: values.title,
-      description: values.description,
+      descriptionId: values.descriptionId,
+      descriptionEn: values.descriptionEn,
       thumbnailUrl: project?.thumbnailUrl ?? null,
       techStack: splitList(values.techStack),
       features: splitList(values.features),
@@ -179,10 +182,20 @@ function ProjectForm({
           />
         </Field>
 
-        <Field label="Description" required>
+        <Field label="Description (ID)" required>
           <Textarea
-            value={values.description}
-            onChange={set("description")}
+            value={values.descriptionId}
+            onChange={set("descriptionId")}
+            rows={4}
+            placeholder="Apa yang dilakukan proyek ini? Masalah apa yang dipecahkan?"
+            required
+          />
+        </Field>
+
+        <Field label="Description (EN)" required>
+          <Textarea
+            value={values.descriptionEn}
+            onChange={set("descriptionEn")}
             rows={4}
             placeholder="What does this project do? What problem does it solve?"
             required
@@ -463,7 +476,7 @@ export function ProjectManager({ projects }: { projects: Project[] }) {
                   </span>
                 </div>
                 <p className="mt-1 line-clamp-2 text-[11px] leading-relaxed text-gray-500">
-                  {project.description}
+                  {project.descriptionEn || project.descriptionId}
                 </p>
                 <div className="mt-3 flex flex-wrap gap-1">
                   {project.techStack.slice(0, 4).map((tech) => (

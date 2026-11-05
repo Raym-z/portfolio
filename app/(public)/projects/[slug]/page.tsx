@@ -13,11 +13,14 @@ import {
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProjectExplorer } from "@/components/projects/project-explorer";
+import { ProjectDescription } from "@/components/projects/project-description";
 import { Badge } from "@/components/ui/badge";
 import { GithubIcon } from "@/components/ui/brand-icons";
 import { ButtonLink } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { SafeImage } from "@/components/ui/safe-image";
+import { T } from "@/components/ui/translated-text";
+import { getProjectDescription } from "@/lib/utils/project-description";
 import { getPublishedProjectBySlug, getPublishedProjects } from "@/lib/services/projects";
 
 type PageProps = {
@@ -36,10 +39,10 @@ export async function generateMetadata({
 
   return {
     title: project.title,
-    description: project.description.slice(0, 160),
+    description: getProjectDescription(project, "en").slice(0, 160),
     openGraph: {
       title: project.title,
-      description: project.description.slice(0, 160),
+      description: getProjectDescription(project, "en").slice(0, 160),
       images: project.thumbnailUrl ? [project.thumbnailUrl] : undefined,
       type: "article",
     },
@@ -66,11 +69,11 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             className="group inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-gray-300 transition hover:border-white/20 hover:text-white"
           >
             <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-0.5" />
-            Back
+            <T k="projects.detail.back" />
           </Link>
           <span className="text-gray-700">/</span>
           <Link href="/projects" className="transition hover:text-white">
-            Projects
+            <T k="projects.detail.breadcrumb" />
           </Link>
           <ChevronRight className="h-3 w-3 text-gray-700" />
           <span className="truncate text-gray-300">{project.title}</span>
@@ -96,9 +99,10 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 </div>
               </div>
 
-              <p className="text-sm leading-relaxed text-gray-400 sm:text-base">
-                {project.description}
-              </p>
+              <ProjectDescription
+                project={project}
+                className="text-sm leading-relaxed text-gray-400 sm:text-base"
+              />
 
               <div className="grid grid-cols-2 gap-3 sm:max-w-sm">
                 <div className="rounded-xl border border-indigo-400/20 bg-indigo-500/[0.06] p-4">
@@ -109,7 +113,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                     </span>
                   </div>
                   <p className="mt-1 text-[10px] uppercase tracking-wider text-gray-500">
-                    Technologies
+                    <T k="projects.detail.technologies" />
                   </p>
                 </div>
                 <div className="rounded-xl border border-purple-400/20 bg-purple-500/[0.06] p-4">
@@ -120,7 +124,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                     </span>
                   </div>
                   <p className="mt-1 text-[10px] uppercase tracking-wider text-gray-500">
-                    Key features
+                    <T k="projects.detail.keyFeatures" />
                   </p>
                 </div>
               </div>
@@ -132,7 +136,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                     external
                     icon={<ExternalLink className="h-4 w-4" />}
                   >
-                    Live demo
+                    <T k="common.liveDemo" />
                   </ButtonLink>
                 )}
                 {project.githubUrl && (
@@ -142,7 +146,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                     variant="secondary"
                     icon={<GithubIcon className="h-4 w-4" />}
                   >
-                    Source code
+                    <T k="common.sourceCode" />
                   </ButtonLink>
                 )}
                 <ButtonLink
@@ -150,14 +154,14 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                   variant="ghost"
                   icon={<ArrowUpRight className="h-4 w-4" />}
                 >
-                  Discuss a project
+                  <T k="projects.detail.discuss" />
                 </ButtonLink>
               </div>
 
               <div className="space-y-3 pt-2">
                 <h2 className="flex items-center gap-2 text-sm font-semibold text-white">
                   <Code2 className="h-4 w-4 text-indigo-400" />
-                  Technologies used
+                  <T k="projects.detail.technologiesUsed" />
                 </h2>
                 <div className="flex flex-wrap gap-2">
                   {project.techStack.length > 0 ? (
@@ -171,7 +175,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                     ))
                   ) : (
                     <p className="text-xs text-gray-600">
-                      No technologies listed.
+                      <T k="projects.detail.noTechnologies" />
                     </p>
                   )}
                 </div>
@@ -197,7 +201,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               <div className="rounded-2xl border border-white/10 bg-white/[0.025] p-5">
                 <h2 className="flex items-center gap-2 text-sm font-semibold text-white">
                   <Star className="h-4 w-4 text-amber-300" />
-                  Key features
+                  <T k="projects.detail.keyFeatures" />
                 </h2>
                 <ul className="mt-4 space-y-2">
                   {project.features.length > 0 ? (
@@ -212,7 +216,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                     ))
                   ) : (
                     <li className="text-xs text-gray-600">
-                      No features listed.
+                      <T k="projects.detail.noFeatures" />
                     </li>
                   )}
                 </ul>
@@ -221,12 +225,10 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               <div className="rounded-2xl border border-indigo-400/20 bg-gradient-to-br from-indigo-500/[0.08] to-transparent p-5">
                 <div className="flex items-center gap-2 text-xs font-semibold text-indigo-300">
                   <Sparkles className="h-3.5 w-3.5" />
-                  Built with intent
+                  <T k="projects.detail.builtWithIntent" />
                 </div>
                 <p className="mt-2 text-[11px] leading-relaxed text-gray-500">
-                  Every project is an opportunity to improve performance,
-                  accessibility, and the small details that make a product feel
-                  trustworthy.
+                  <T k="projects.detail.builtWithIntentDescription" />
                 </p>
               </div>
             </div>
@@ -237,13 +239,13 @@ export default async function ProjectDetailPage({ params }: PageProps) {
           <div className="mt-20 border-t border-white/[0.06] pt-10">
             <div className="mb-6 flex items-center justify-between">
               <h2 className="text-lg font-semibold text-white">
-                More projects
+                <T k="projects.detail.moreProjects" />
               </h2>
               <Link
                 href="/projects"
                 className="group inline-flex items-center gap-1 text-xs text-indigo-300 transition hover:text-indigo-200"
               >
-                View all
+                <T k="projects.detail.viewAll" />
                 <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>
             </div>

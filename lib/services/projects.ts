@@ -92,7 +92,8 @@ export async function insertProject(
     .insert({
       slug: input.slug,
       title: input.title,
-      description: input.description,
+      description_id: input.descriptionId,
+      description_en: input.descriptionEn,
       thumbnail_url: input.thumbnailUrl ?? null,
       tech_stack: input.techStack,
       features: input.features,
@@ -119,7 +120,8 @@ export async function updateProjectRecord(
     .from("projects")
     .update({
       title: input.title,
-      description: input.description,
+      description_id: input.descriptionId,
+      description_en: input.descriptionEn,
       thumbnail_url: input.thumbnailUrl ?? null,
       tech_stack: input.techStack,
       features: input.features,

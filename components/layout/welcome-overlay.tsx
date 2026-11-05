@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Code2, Globe, User } from "lucide-react";
 import { useEffect, useState } from "react";
 import { GithubIcon } from "@/components/ui/brand-icons";
+import { useI18n } from "@/lib/i18n/provider";
 
 const introIcons = [Code2, User, GithubIcon];
 
@@ -27,6 +28,7 @@ function useTypedText(text: string, start: boolean, speed = 60) {
 }
 
 export function WelcomeOverlay() {
+	const { t } = useI18n();
 	const [host] = useState(() => (typeof window === "undefined" ? "" : window.location.host.replace(/^www\./, "")));
 	const [typing, setTyping] = useState(false);
 
@@ -77,7 +79,7 @@ export function WelcomeOverlay() {
 
 				<h1 className='mt-10 text-[2.6rem] font-extrabold leading-[1.06] tracking-[-0.03em] sm:text-6xl lg:text-7xl'>
 					<motion.span initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35, duration: 0.6, ease: [0.22, 1, 0.36, 1] }} className='block text-[#f5f3ff]'>
-						Welcome To My
+						{t("intro.welcome")}
 					</motion.span>
 					<motion.span
 						initial={{ opacity: 0, y: 18 }}
@@ -85,7 +87,7 @@ export function WelcomeOverlay() {
 						transition={{ delay: 0.45, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
 						className='mt-1 block bg-gradient-to-r from-indigo-400 via-purple-500 to-fuchsia-400 bg-clip-text pb-1 text-transparent drop-shadow-[0_0_28px_rgba(139,92,246,0.35)]'
 					>
-						Portfolio Website
+						{t("intro.portfolio")}
 					</motion.span>
 				</h1>
 

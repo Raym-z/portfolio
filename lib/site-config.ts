@@ -83,7 +83,9 @@ export const siteConfig = {
       period: "Sep 2025 – Feb 2026",
       description:
         "Built and maintained an internal government visa and immigration platform, including PDF report generation and end-to-end workflow features.",
-    },
+      description_id: 
+      "Membangun dan memelihara platform internal visa dan keimigrasian pemerintah, termasuk fitur pembuatan laporan PDF dan pengelolaan alur kerja secara menyeluruh.",
+      },
     {
       type: "education",
       title: "B.Sc. Computer Science",
@@ -130,11 +132,11 @@ export const siteConfig = {
     yearsExperience: 4,
   },
   nav: [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Projects", href: "#projects" },
-    { label: "Research", href: "#certificates" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", labelKey: "nav.home", href: "#home" },
+    { label: "About", labelKey: "nav.about", href: "#about" },
+    { label: "Projects", labelKey: "nav.projects", href: "#projects" },
+    { label: "Research", labelKey: "nav.research", href: "#certificates" },
+    { label: "Contact", labelKey: "nav.contact", href: "#contact" },
   ],
 } as const;
 

@@ -3,6 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   experimental: {
     agentFeedback: true,
+    serverActions: {
+      bodySizeLimit: "10mb",
+    },
   },
   cacheComponents: true,
   partialPrefetching: true,

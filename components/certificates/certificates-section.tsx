@@ -1,6 +1,7 @@
 import { CertificateGallery } from "@/components/certificates/certificate-gallery";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { T } from "@/components/ui/translated-text";
 import { ErrorState } from "@/components/ui/states";
 import { getCertificates } from "@/lib/services/certificates";
 
@@ -21,20 +22,20 @@ export async function CertificatesSection() {
     >
       <Reveal>
         <SectionHeading
-          eyebrow="Research & credentials"
+          eyebrow={<T k="certificates.eyebrow" />}
           title={
             <>
-              Published <span className="text-gradient">research</span>
+              <T k="certificates.titleLead" /> <span className="text-gradient"><T k="certificates.titleHighlight" /></span>
             </>
           }
-          description="Peer-reviewed work on machine learning and AI-generated media, plus selected credentials. Click a card to open its publication or view the certificate."
+          description={<T k="certificates.description" />}
         />
       </Reveal>
 
       <div className="mt-10">
         {error ? (
           <ErrorState
-            title="Research and credentials are temporarily unavailable"
+            title={<T k="certificates.errorTitle" />}
             description={error}
           />
         ) : (

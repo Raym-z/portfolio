@@ -14,6 +14,7 @@ import { Modal } from "@/components/ui/modal";
 import { Reveal } from "@/components/ui/reveal";
 import { EmptyState } from "@/components/ui/states";
 import { formatDate } from "@/lib/utils/date";
+import { useI18n } from "@/lib/i18n/provider";
 import type { Certificate } from "@/types";
 
 const INITIAL_COUNT = 4;
@@ -23,6 +24,7 @@ export function CertificateGallery({
 }: {
   certificates: Certificate[];
 }) {
+  const { t, locale } = useI18n();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [showAll, setShowAll] = useState(false);
 
@@ -68,8 +70,8 @@ export function CertificateGallery({
     return (
       <EmptyState
         icon={Award}
-        title="No research or credentials yet"
-        description="Publications and certificates uploaded from the admin dashboard will be displayed here."
+        title={t("certificates.emptyTitle")}
+        description={t("certificates.emptyDescription")}
       />
     );
   }
@@ -89,14 +91,14 @@ export function CertificateGallery({
                   <Icon className="h-4 w-4 text-indigo-300" />
                 </span>
                 <span className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-1 text-[10px] text-gray-500">
-                  {certificate.issuer || formatDate(certificate.createdAt)}
+                  {certificate.issuer || formatDate(certificate.createdAt, locale)}
                 </span>
               </div>
               <h3 className="mt-4 text-sm font-semibold leading-snug text-white">
                 {certificate.title}
               </h3>
               <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-[10px] font-medium uppercase tracking-[0.16em] text-indigo-300 transition group-hover:text-indigo-200">
-                {isPublication ? "Read publication" : "Show certificate"}
+                {isPublication ? t("certificates.readPublication") : t("certificates.showCertificate")}
                 {isPublication ? (
                   <ExternalLink className="h-3 w-3" />
                 ) : (
@@ -152,7 +154,7 @@ export function CertificateGallery({
             onClick={() => setShowAll((value) => !value)}
             className="rounded-lg border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-medium text-gray-400 transition hover:border-white/20 hover:text-white"
           >
-            {showAll ? "Show less" : `View all ${certificates.length} entries`}
+            {showAll ? t("common.showLess") : t("certificates.viewAll", { count: certificates.length })}
           </button>
         </div>
       )}
@@ -179,7 +181,7 @@ export function CertificateGallery({
                   type="button"
                   onClick={() => move(-1)}
                   className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-black/60 text-white backdrop-blur transition hover:bg-black/80"
-                  aria-label="Previous entry"
+                  aria-label={t("certificates.previous")}
                 >
                   <ChevronLeft className="h-4 w-4" />
                 </button>
@@ -192,7 +194,7 @@ export function CertificateGallery({
                   type="button"
                   onClick={() => move(1)}
                   className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-black/60 text-white backdrop-blur transition hover:bg-black/80"
-                  aria-label="Next entry"
+                  aria-label={t("certificates.next")}
                 >
                   <ChevronRight className="h-4 w-4" />
                 </button>

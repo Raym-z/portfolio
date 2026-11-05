@@ -1,7 +1,8 @@
 "use server";
 
-import { contactSchema } from "@/lib/utils/validation";
 import { insertContactMessage } from "@/lib/services/messages";
+import { isLocale, translate, type Locale } from "@/lib/i18n/config";
+import { createContactSchema } from "@/lib/utils/validation";
 import type { ActionResult } from "@/types";
 
 export async function submitContactMessage(input: {
@@ -9,13 +10,16 @@ export async function submitContactMessage(input: {
   email: string;
   message: string;
   website?: string;
+  locale?: Locale;
 }): Promise<ActionResult> {
-  const parsed = contactSchema.safeParse(input);
+  const locale = isLocale(input.locale) ? input.locale : "id";
+  const t = (key: string) => translate(locale, key);
+  const parsed = createContactSchema(t).safeParse(input);
 
   if (!parsed.success) {
     return {
       success: false,
-      error: parsed.error.issues[0]?.message ?? "Please check the form.",
+      error: parsed.error.issues[0]?.message ?? t("validation.checkForm"),
     };
   }
 
@@ -32,7 +36,7 @@ export async function submitContactMessage(input: {
 
     return {
       success: true,
-      message: "Thanks for reaching out. I'll get back to you soon.",
+      message: t("contact.toasts.sentText"),
     };
   } catch (error) {
     return {
@@ -40,7 +44,7 @@ export async function submitContactMessage(input: {
       error:
         error instanceof Error
           ? error.message
-          : "Could not send your message. Please try again.",
+          : t("contact.error"),
     };
   }
 }

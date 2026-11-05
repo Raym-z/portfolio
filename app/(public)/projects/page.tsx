@@ -5,6 +5,7 @@ import { ProjectExplorer } from "@/components/projects/project-explorer";
 import { ButtonLink } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { T } from "@/components/ui/translated-text";
 import { EmptyState, ErrorState } from "@/components/ui/states";
 import { getPublishedProjects } from "@/lib/services/projects";
 
@@ -28,27 +29,27 @@ export default async function ProjectsPage() {
     <div className="section-shell pb-20 pt-28 sm:pt-32">
       <Reveal>
         <SectionHeading
-          eyebrow="Archive"
+          eyebrow={<T k="projects.archive.eyebrow" />}
           title={
             <>
-              All <span className="text-gradient">projects</span>
+              <T k="projects.archive.titleLead" /> <span className="text-gradient"><T k="projects.archive.titleHighlight" /></span>
             </>
           }
-          description="Every published project, from production applications to internal tools and experiments. Filter by the technologies you care about."
+          description={<T k="projects.archive.description" />}
         />
       </Reveal>
 
       <div className="mt-10">
         {error ? (
           <ErrorState
-            title="Projects are temporarily unavailable"
+            title={<T k="projects.errorTitle" />}
             description={error}
           />
         ) : projects.length === 0 ? (
           <EmptyState
             icon={FolderGit2}
-            title="No projects published yet"
-            description="Once projects are published from the admin dashboard, they will show up here."
+            title={<T k="projects.emptyTitle" />}
+            description={<T k="projects.emptyDescription" />}
           />
         ) : (
           <ProjectExplorer projects={projects} />
@@ -58,14 +59,14 @@ export default async function ProjectsPage() {
       <div className="mt-14 flex flex-col items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center sm:flex-row sm:text-left">
         <div>
           <h2 className="text-sm font-semibold text-white">
-            Have a project in mind?
+            <T k="projects.cta.title" />
           </h2>
           <p className="mt-1 text-xs text-gray-500">
-            I&apos;m always interested in thoughtful products and teams.
+            <T k="projects.cta.description" />
           </p>
         </div>
         <ButtonLink href="/#contact" size="md">
-          Start a conversation
+          <T k="projects.cta.button" />
         </ButtonLink>
       </div>
 
@@ -74,7 +75,7 @@ export default async function ProjectsPage() {
           href="/"
           className="text-xs text-gray-500 transition hover:text-white"
         >
-          ← Back to home
+          <T k="projects.backHome" />
         </Link>
       </div>
     </div>

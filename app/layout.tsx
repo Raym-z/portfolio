@@ -46,7 +46,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 	return (
-		<html lang='en' data-scroll-behavior='smooth' className={`${poppins.variable} h-full antialiased`}>
+		<html lang='id' data-scroll-behavior='smooth' className={`${poppins.variable} h-full antialiased`}>
 			<body className='min-h-full bg-background text-[#e9e6f5]'>
 				<Script id='scroll-restoration' strategy='beforeInteractive'>
 					{`if ("scrollRestoration" in history) { history.scrollRestoration = "manual"; }`}

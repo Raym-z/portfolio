@@ -5,12 +5,13 @@
 -- safe for projects (upsert by slug) and publications (skips existing titles).
 
 insert into public.projects
-  (slug, title, description, thumbnail_url, tech_stack, features, live_url, github_url, published, display_order)
+  (slug, title, description_id, description_en, thumbnail_url, tech_stack, features, live_url, github_url, published, display_order)
 values
   (
     'bookcast-audiobooks',
     'Bookcast — Audiobook Web App',
     'Platform audiobook full-stack untuk menemukan dan streaming audiobook gratis melalui antarmuka yang intuitif dan responsif. Dilengkapi favorit dan riwayat mendengarkan agar pengguna dapat kembali ke konten yang sedang mereka nikmati.',
+    'A full-stack audiobook platform for discovering and streaming free audiobooks through an intuitive, responsive interface. Includes favorites and listening history so users can pick up where they left off.',
     '/mock/project-bookcast.svg',
     array['Next.js', 'Tailwind CSS', 'Supabase', 'LibriVox'],
     array[
@@ -28,6 +29,7 @@ values
     'visa-immigration-platform',
     'Visa & Immigration Platform',
     'Sistem alur kerja visa dan imigrasi pemerintah internal yang dibangun selama magang di PT. Pro Sistimatika Automasi. Berkontribusi pada frontend dan backend, termasuk pembuatan laporan PDF otomatis.',
+    'An internal government visa and immigration workflow system built during an internship at PT. Pro Sistimatika Automasi. Contributed to both frontend and backend, including automated PDF report generation.',
     '/mock/project-visa.svg',
     array['React', 'NodeJS', 'MySQL', 'PDF Generation'],
     array[
@@ -45,6 +47,7 @@ values
     'choreboard',
     'Choreboard — Gamified Chores',
     'Pelacak tugas rumah tangga bergamifikasi yang dibangun dengan Laravel 12. Mendukung rumah tangga, undangan, akses berbasis peran, tugas berulang, bonus streak, dan hadiah berbasis papan peringkat.',
+    'A gamified household chore tracker built with Laravel 12. Supports households, invitations, role-based access, recurring tasks, streak bonuses, and leaderboard-based rewards.',
     '/mock/project-choreboard.svg',
     array['Laravel 12', 'MySQL', 'Tailwind CSS', 'FullCalendar'],
     array[
@@ -62,6 +65,7 @@ values
     'personal-finance-tracker',
     'Personal Finance Tracker',
     'Aplikasi web Laravel yang responsif untuk melacak pendapatan, pengeluaran, anggaran, dan tujuan keuangan, dengan dasbor Chart.js interaktif dan unggahan tanda terima yang aman.',
+    'A responsive Laravel web app for tracking income, expenses, budgets, and financial goals, with an interactive Chart.js dashboard and secure receipt uploads.',
     '/mock/project-finance.svg',
     array['Laravel', 'MySQL', 'Chart.js', 'Bootstrap'],
     array[
@@ -79,6 +83,7 @@ values
   'nook-collaborative-notes',
   'Nook — Collaborative Notes',
   'Ruang kerja catatan kolaboratif dan produktivitas secara real-time dengan sinkronisasi file dan folder yang didukung Firebase. Dirancang untuk ribuan pengguna bersamaan dengan sinkronisasi di bawah 200ms dan kartu belajar yang dihasilkan AI.',
+  'A real-time collaborative notes and productivity workspace with Firebase-backed file and folder sync. Designed for thousands of concurrent users with sub-200ms sync and AI-generated study cards.',
   '/mock/project-nook.svg',
   array['SvelteKit', 'Firebase', 'JavaScript', 'OpenAI API'],
   array[
@@ -96,6 +101,7 @@ values
     'catastrophe-last-cat-standing',
     'Catastrophe: Last Cat Standing',
     'Proyek game Unity di mana saya membangun mekanik gameplay inti, AI musuh, pergerakan karakter, pertarungan, pembuatan dungeon, dan desain level. Diterbitkan di itch.io.',
+    'A Unity game project where I built core gameplay mechanics, enemy AI, character movement, combat, dungeon generation, and level design. Published on itch.io.',
     '/mock/project-catastrophe.svg',
     array['Unity', 'C#'],
     array[
@@ -111,7 +117,8 @@ values
   )
 on conflict (slug) do update set
   title = excluded.title,
-  description = excluded.description,
+  description_id = excluded.description_id,
+  description_en = excluded.description_en,
   thumbnail_url = excluded.thumbnail_url,
   tech_stack = excluded.tech_stack,
   features = excluded.features,

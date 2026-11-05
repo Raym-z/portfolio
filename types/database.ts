@@ -36,7 +36,8 @@ export type Database = {
           id: string;
           slug: string;
           title: string;
-          description: string;
+          description_id: string;
+          description_en: string;
           thumbnail_url: string | null;
           tech_stack: string[];
           features: string[];
@@ -51,7 +52,8 @@ export type Database = {
           id?: string;
           slug: string;
           title: string;
-          description?: string;
+          description_id?: string;
+          description_en?: string;
           thumbnail_url?: string | null;
           tech_stack?: string[];
           features?: string[];
@@ -65,7 +67,8 @@ export type Database = {
         Update: {
           slug?: string;
           title?: string;
-          description?: string;
+          description_id?: string;
+          description_en?: string;
           thumbnail_url?: string | null;
           tech_stack?: string[];
           features?: string[];

@@ -30,8 +30,8 @@ export function EmptyState({
   className,
 }: {
   icon: LucideIcon;
-  title: string;
-  description?: string;
+  title: ReactNode;
+  description?: ReactNode;
   action?: ReactNode;
   className?: string;
 }) {
@@ -61,8 +61,8 @@ export function ErrorState({
   description,
   action,
 }: {
-  title?: string;
-  description?: string;
+  title?: ReactNode;
+  description?: ReactNode;
   action?: ReactNode;
 }) {
   return (

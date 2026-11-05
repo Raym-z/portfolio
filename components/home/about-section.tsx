@@ -4,6 +4,7 @@ import { ButtonLink } from "@/components/ui/button";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/reveal";
 import { SafeImage } from "@/components/ui/safe-image";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { T } from "@/components/ui/translated-text";
 import { getCertificates } from "@/lib/services/certificates";
 import { getPublishedProjects } from "@/lib/services/projects";
 import { siteConfig } from "@/lib/site-config";
@@ -22,25 +23,25 @@ export async function AboutSection() {
 
 	const stats = [
 		{
-			label: "Projects shipped",
+			labelKey: "about.stats.projects.label",
+			descriptionKey: "about.stats.projects.description",
 			value: projects.length,
-			description: "Selected work across products and tools",
 			icon: FolderGit2,
 			accent: "from-indigo-500/25 to-transparent",
 			showPlus: true,
 		},
 		{
-			label: "Research & credentials",
+			labelKey: "about.stats.credentials.label",
+			descriptionKey: "about.stats.credentials.description",
 			value: certificates.length,
-			description: "Peer-reviewed papers and certifications",
 			icon: Award,
 			accent: "from-purple-500/25 to-transparent",
 			showPlus: false,
 		},
 		{
-			label: "Years building",
+			labelKey: "about.stats.years.label",
+			descriptionKey: "about.stats.years.description",
 			value: years,
-			description: "From first project to production systems",
 			icon: Timer,
 			accent: "from-cyan-500/20 to-transparent",
 			showPlus: true,
@@ -51,35 +52,35 @@ export async function AboutSection() {
 		<section id='about' className='section-shell scroll-mt-24 py-12 sm:py-14'>
 			<Reveal>
 				<SectionHeading
-					eyebrow='About me'
+					eyebrow={<T k='about.eyebrow' />}
 					title={
 						<>
-							Building systems that <span className='text-gradient'>keep up</span>
+							<T k='about.titleLead' /> <span className='text-gradient'><T k='about.titleHighlight' /></span>
 						</>
 					}
-					description={siteConfig.about.intro}
+					description={<T k='about.intro' />}
 				/>
 			</Reveal>
 
 			<div className='mt-14 grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16'>
 				<Reveal direction='left' distance={70}>
 					<div className='space-y-6'>
-						<p className='text-sm leading-relaxed text-gray-400 sm:text-base'>{siteConfig.about.background}</p>
+						<p className='text-sm leading-relaxed text-gray-400 sm:text-base'><T k='about.background' /></p>
 
 						<div className='relative overflow-hidden rounded-2xl border border-indigo-400/20 bg-gradient-to-br from-indigo-500/[0.07] via-transparent to-purple-500/[0.07] p-5'>
 							<div className='absolute -right-4 -top-4 h-20 w-20 rounded-full bg-indigo-500/15 blur-2xl' />
 							<div className='absolute -bottom-5 -left-3 h-16 w-16 rounded-full bg-purple-500/15 blur-xl' />
-							<p className='relative text-sm font-medium italic leading-relaxed text-gray-300'>&ldquo;{siteConfig.about.quote}&rdquo;</p>
+							<p className='relative text-sm font-medium italic leading-relaxed text-gray-300'>&ldquo;<T k='about.quote' />&rdquo;</p>
 						</div>
 
 						<div className='flex flex-wrap items-center gap-3'>
 							{resumeUrl && resumeUrl !== "#" && (
 								<ButtonLink href={resumeUrl} variant='primary' icon={<Download className='h-4 w-4' />} external={resumeUrl.startsWith("http")}>
-									Download CV
+									<T k='common.downloadCv' />
 								</ButtonLink>
 							)}
 							<ButtonLink href='#projects' variant='outline' icon={<Code2 className='h-4 w-4' />}>
-								View projects
+								<T k='common.viewProjects' />
 							</ButtonLink>
 							{/* <Link
                 href="/#contact"
@@ -104,7 +105,7 @@ export async function AboutSection() {
 								<div className='absolute inset-x-0 bottom-6 flex justify-center'>
 									<Badge variant='green' className='gap-1.5 border-emerald-400/30 bg-[#04140f]/80 backdrop-blur'>
 										<span className='h-1.5 w-1.5 rounded-full bg-emerald-400' />
-										Available for work
+										<T k='about.available' />
 									</Badge>
 								</div>
 							</div>
@@ -115,7 +116,7 @@ export async function AboutSection() {
 
 			<Stagger className='mt-14 grid gap-4 sm:grid-cols-3'>
 				{stats.map((stat, index) => (
-					<StaggerItem key={stat.label} direction={index === 0 ? "left" : index === 2 ? "right" : "up"}>
+					<StaggerItem key={stat.labelKey} direction={index === 0 ? "left" : index === 2 ? "right" : "up"}>
 						<div className='group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]'>
 							<div className={`absolute inset-0 bg-gradient-to-br ${stat.accent} opacity-60`} />
 							<div className='relative flex items-start justify-between'>
@@ -128,8 +129,8 @@ export async function AboutSection() {
 								</span>
 							</div>
 							<div className='relative mt-4'>
-								<p className='text-xs font-semibold uppercase tracking-[0.12em] text-gray-300'>{stat.label}</p>
-								<p className='mt-1 text-xs leading-relaxed text-gray-500'>{stat.description}</p>
+								<p className='text-xs font-semibold uppercase tracking-[0.12em] text-gray-300'><T k={stat.labelKey} /></p>
+								<p className='mt-1 text-xs leading-relaxed text-gray-500'><T k={stat.descriptionKey} /></p>
 							</div>
 						</div>
 					</StaggerItem>
@@ -167,15 +168,16 @@ export async function AboutSection() {
 
 			<Reveal className='mt-16'>
 				<div className='flex flex-col gap-2'>
-					<p className='text-[11px] font-semibold uppercase tracking-[0.18em] text-indigo-300'>Experience & education</p>
-					<h3 className='text-2xl font-bold tracking-tight text-white'>Where I&apos;ve learned and shipped</h3>
-					<p className='max-w-xl text-xs leading-relaxed text-gray-500'>Industry work, formal study, and an international exchange — each one shaped how I approach building software.</p>
+					<p className='text-[11px] font-semibold uppercase tracking-[0.18em] text-indigo-300'><T k='about.experience.eyebrow' /></p>
+					<h3 className='text-2xl font-bold tracking-tight text-white'><T k='about.experience.title' /></h3>
+					<p className='max-w-xl text-xs leading-relaxed text-gray-500'><T k='about.experience.description' /></p>
 				</div>
 
 				<div className='relative mt-8 grid gap-4 lg:grid-cols-3'>
 					<div className='pointer-events-none absolute left-0 right-0 top-9 hidden h-px bg-gradient-to-r from-transparent via-indigo-500/25 to-transparent lg:block' />
 					{siteConfig.timeline.map((item, index) => {
 						const Icon = timelineIcons[item.type as keyof typeof timelineIcons] ?? Briefcase;
+						const keyBase = `about.timeline.${item.type}`;
 
 						return (
 							<Reveal key={item.title} direction={index % 2 === 0 ? "left" : "right"} distance={80} delay={index * 0.06} className='h-full'>
@@ -184,11 +186,11 @@ export async function AboutSection() {
 										<span className='flex h-10 w-10 items-center justify-center rounded-xl border border-indigo-400/20 bg-indigo-500/10'>
 											<Icon className='h-4 w-4 text-indigo-300' />
 										</span>
-										<span className='rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-1 text-[10px] text-gray-500'>{item.period}</span>
+										<span className='rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-1 text-[10px] text-gray-500'><T k={`${keyBase}.period`} /></span>
 									</div>
-									<h4 className='mt-4 text-sm font-semibold text-white'>{item.title}</h4>
-									<p className='mt-0.5 text-xs font-medium text-indigo-300'>{item.organization}</p>
-									<p className='mt-3 text-xs leading-relaxed text-gray-500'>{item.description}</p>
+									<h4 className='mt-4 text-sm font-semibold text-white'><T k={`${keyBase}.title`} /></h4>
+									<p className='mt-0.5 text-xs font-medium text-indigo-300'><T k={`${keyBase}.organization`} /></p>
+									<p className='mt-3 text-xs leading-relaxed text-gray-500'><T k={`${keyBase}.description`} /></p>
 								</div>
 							</Reveal>
 						);

@@ -3,6 +3,7 @@ import { ProjectExplorer } from "@/components/projects/project-explorer";
 import { ButtonLink } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { T } from "@/components/ui/translated-text";
 import { ErrorState } from "@/components/ui/states";
 import { getPublishedProjects } from "@/lib/services/projects";
 
@@ -22,17 +23,17 @@ export async function ProjectsSection() {
 				<div className='flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between'>
 					<SectionHeading
 						align='left'
-						eyebrow='Selected work'
+						eyebrow={<T k='projects.eyebrow' />}
 						title={
 							<>
-								Projects that <span className='text-gradient'>shipped</span>
+								<T k='projects.titleLead' /> <span className='text-gradient'><T k='projects.titleHighlight' /></span>
 							</>
 						}
-						description='A few products, tools, and experiments. Each one is a snapshot of a problem I enjoyed solving.'
+						description={<T k='projects.description' />}
 					/>
 					<div className='flex shrink-0 gap-2'>
 						<ButtonLink href='/projects' variant='secondary' size='md' icon={<FolderGit2 className='h-4 w-4' />}>
-							All projects
+							<T k='common.allProjects' />
 						</ButtonLink>
 						{/* <Link
               href="/#contact"
@@ -45,7 +46,7 @@ export async function ProjectsSection() {
 				</div>
 			</Reveal>
 
-			<div className='mt-10'>{error ? <ErrorState title='Projects are temporarily unavailable' description={error} /> : <ProjectExplorer projects={projects} />}</div>
+			<div className='mt-10'>{error ? <ErrorState title={<T k='projects.errorTitle' />} description={error} /> : <ProjectExplorer projects={projects} />}</div>
 		</section>
 	);
 }

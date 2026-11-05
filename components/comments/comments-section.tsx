@@ -10,7 +10,7 @@ import {
   UserCircle2,
   X,
 } from "lucide-react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Field, Input, Textarea } from "@/components/ui/field";
@@ -25,17 +25,20 @@ import {
 import { isSupabaseConfigured } from "@/lib/site-config";
 import { formatRelativeDate } from "@/lib/utils/date";
 import { toast } from "@/lib/utils/notify";
-import { commentSchema } from "@/lib/utils/validation";
+import { createCommentSchema } from "@/lib/utils/validation";
+import { useI18n } from "@/lib/i18n/provider";
 import { cn } from "@/lib/utils/cn";
 import type { Comment } from "@/types";
 
 function Avatar({ comment }: { comment: Comment }) {
+  const { t } = useI18n();
+
   if (comment.profileImageUrl) {
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img
         src={comment.profileImageUrl}
-        alt={`${comment.userName}'s avatar`}
+        alt={t("comments.avatarAlt", { name: comment.userName })}
         loading="lazy"
         className={cn(
           "h-9 w-9 rounded-full border-2 object-cover",
@@ -60,6 +63,8 @@ function Avatar({ comment }: { comment: Comment }) {
 }
 
 function CommentItem({ comment }: { comment: Comment }) {
+  const { t, locale } = useI18n();
+
   return (
     <motion.div
       layout
@@ -77,7 +82,7 @@ function CommentItem({ comment }: { comment: Comment }) {
         <div className="mb-3 flex items-center gap-1.5 text-indigo-300">
           <Pin className="h-3 w-3" />
           <span className="text-[9px] font-semibold uppercase tracking-[0.16em]">
-            Pinned comment
+            {t("comments.pinned")}
           </span>
         </div>
       )}
@@ -91,12 +96,12 @@ function CommentItem({ comment }: { comment: Comment }) {
               </p>
               {comment.isPinned && (
                 <Badge variant="indigo" className="shrink-0 text-[9px]">
-                  Admin
+                  {t("comments.admin")}
                 </Badge>
               )}
             </div>
             <span className="shrink-0 text-[10px] text-gray-500">
-              {formatRelativeDate(comment.createdAt)}
+              {formatRelativeDate(comment.createdAt, locale)}
             </span>
           </div>
           <p className="mt-1 break-words text-xs leading-relaxed text-gray-400">
@@ -109,6 +114,11 @@ function CommentItem({ comment }: { comment: Comment }) {
 }
 
 export function CommentsSection() {
+  const { t } = useI18n();
+  const schema = useMemo(
+    () => createCommentSchema((key) => t(key)),
+    [t],
+  );
   const [comments, setComments] = useState<Comment[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -128,12 +138,12 @@ export function CommentsSection() {
       setError(null);
     } catch (cause) {
       setError(
-        cause instanceof Error ? cause.message : "Could not load comments.",
+        cause instanceof Error ? cause.message : t("comments.errors.load"),
       );
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -161,12 +171,12 @@ export function CommentsSection() {
     if (!file) return;
 
     if (!file.type.startsWith("image/")) {
-      setFormError("Please choose a valid image file.");
+      setFormError(t("comments.errors.invalidImage"));
       return;
     }
 
     if (file.size > 5 * 1024 * 1024) {
-      setFormError("Profile image must be smaller than 5 MB.");
+      setFormError(t("comments.errors.imageTooLarge"));
       return;
     }
 
@@ -187,20 +197,20 @@ export function CommentsSection() {
     event.preventDefault();
     setFormError(null);
 
-    const parsed = commentSchema.safeParse({
+    const parsed = schema.safeParse({
       userName: name,
       content: message,
     });
 
     if (!parsed.success) {
-      setFormError(parsed.error.issues[0]?.message ?? "Please check the form.");
+      setFormError(
+        parsed.error.issues[0]?.message ?? t("comments.errors.checkForm"),
+      );
       return;
     }
 
     if (!isSupabaseConfigured) {
-      setFormError(
-        "Comments are not connected yet. Add your Supabase credentials to enable posting.",
-      );
+      setFormError(t("comments.errors.notConnected"));
       return;
     }
 
@@ -227,12 +237,12 @@ export function CommentsSection() {
       setMessage("");
       clearAvatar();
       await toast({
-        title: "Comment posted",
-        text: "Thanks for joining the conversation.",
+        title: t("comments.postedTitle"),
+        text: t("comments.postedText"),
       });
     } catch (cause) {
       setFormError(
-        cause instanceof Error ? cause.message : "Could not post your comment.",
+        cause instanceof Error ? cause.message : t("comments.errors.post"),
       );
     } finally {
       setSubmitting(false);
@@ -246,13 +256,13 @@ export function CommentsSection() {
     <section id="comments" className="section-shell scroll-mt-24 py-12 sm:py-14">
       <Reveal>
         <SectionHeading
-          eyebrow="Guestbook"
+          eyebrow={t("comments.eyebrow")}
           title={
             <>
-              Leave a <span className="text-gradient">note</span>
+              {t("comments.titleLead")} <span className="text-gradient">{t("comments.titleHighlight")}</span>
             </>
           }
-          description="Have a question, a project idea, or just want to say hello? Drop a comment below — pinned notes appear at the top."
+          description={t("comments.description")}
         />
       </Reveal>
 
@@ -265,40 +275,40 @@ export function CommentsSection() {
               </span>
               <div>
                 <h3 className="text-sm font-semibold text-white">
-                  Write a comment
+                  {t("comments.formTitle")}
                 </h3>
                 <p className="text-[11px] text-gray-500">
-                  Be respectful. Comments are public.
+                  {t("comments.formSubtitle")}
                 </p>
               </div>
             </div>
 
             <form onSubmit={handleSubmit} className="mt-5 space-y-4">
-              <Field label="Name" required hint={`${name.length}/40`}>
+              <Field label={t("comments.name")} required hint={`${name.length}/40`}>
                 <Input
                   value={name}
                   onChange={(event) => setName(event.target.value)}
                   maxLength={40}
-                  placeholder="Your name"
+                  placeholder={t("comments.placeholderName")}
                   autoComplete="name"
                   required
                 />
               </Field>
 
-              <Field label="Message" required hint={`${message.length}/500`}>
+              <Field label={t("comments.message")} required hint={`${message.length}/500`}>
                 <Textarea
                   value={message}
                   onChange={(event) => setMessage(event.target.value)}
                   maxLength={500}
                   rows={4}
-                  placeholder="Share a thought, question, or hello..."
+                  placeholder={t("comments.placeholderMessage")}
                   required
                 />
               </Field>
 
               <div className="space-y-1.5">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-indigo-300/70">
-                  Profile photo <span className="text-gray-600">(optional)</span>
+                  {t("comments.profilePhoto")} <span className="text-gray-600">{t("comments.optional")}</span>
                 </p>
                 {avatarPreview ? (
                   <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-3">
@@ -312,13 +322,13 @@ export function CommentsSection() {
                       <p className="truncate text-xs text-gray-300">
                         {avatarFile?.name}
                       </p>
-                      <p className="text-[10px] text-gray-600">Max 5 MB</p>
+                      <p className="text-[10px] text-gray-600">{t("comments.maxSize")}</p>
                     </div>
                     <button
                       type="button"
                       onClick={clearAvatar}
                       className="rounded-lg p-1.5 text-gray-500 transition hover:bg-red-500/10 hover:text-red-400"
-                      aria-label="Remove photo"
+                      aria-label={t("comments.removePhoto")}
                     >
                       <X className="h-4 w-4" />
                     </button>
@@ -330,7 +340,7 @@ export function CommentsSection() {
                     className="flex w-full items-center justify-center gap-2 rounded-xl border border-dashed border-indigo-400/30 bg-indigo-500/[0.05] px-4 py-3 text-xs text-indigo-300 transition hover:border-indigo-400/60 hover:bg-indigo-500/10"
                   >
                     <ImagePlus className="h-4 w-4" />
-                    Choose a profile photo
+                    {t("comments.choosePhoto")}
                   </button>
                 )}
                 <input
@@ -352,8 +362,7 @@ export function CommentsSection() {
               {!isSupabaseConfigured && (
                 <div className="flex items-start gap-2 rounded-xl border border-amber-500/20 bg-amber-500/[0.07] p-3 text-[11px] leading-relaxed text-amber-200/80">
                   <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
-                  Comments are showing demo data. Connect Supabase to enable
-                  posting and realtime updates.
+                  {t("comments.errors.demoNotice")}
                 </div>
               )}
 
@@ -365,7 +374,7 @@ export function CommentsSection() {
                 icon={<Send className="h-4 w-4" />}
                 disabled={!isSupabaseConfigured}
               >
-                {submitting ? "Posting..." : "Post comment"}
+                {submitting ? t("comments.posting") : t("comments.post")}
               </Button>
             </form>
           </div>
@@ -376,12 +385,12 @@ export function CommentsSection() {
             <div className="flex items-center justify-between">
               <h3 className="flex items-center gap-2 text-sm font-semibold text-white">
                 <MessageCircle className="h-4 w-4 text-indigo-300" />
-                Comments
+                {t("comments.heading")}
                 <span className="text-indigo-400">({comments.length})</span>
               </h3>
               <span className="flex items-center gap-1.5 text-[10px] text-gray-600">
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
-                Realtime
+                {t("comments.realtime")}
               </span>
             </div>
 
@@ -400,8 +409,8 @@ export function CommentsSection() {
               ) : comments.length === 0 ? (
                 <EmptyState
                   icon={MessageCircle}
-                  title="No comments yet"
-                  description="Be the first to leave a note."
+                  title={t("comments.noCommentsTitle")}
+                  description={t("comments.noCommentsDescription")}
                 />
               ) : (
                 <AnimatePresence initial={false}>

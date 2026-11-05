@@ -14,11 +14,15 @@ type MessageRow = Database["public"]["Tables"]["contact_messages"]["Row"];
 type ProfileRow = Database["public"]["Tables"]["profiles"]["Row"];
 
 export function mapProject(row: ProjectRow): Project {
+  const legacyDescription = (row as ProjectRow & { description?: string | null })
+    .description;
+
   return {
     id: row.id,
     slug: row.slug,
     title: row.title,
-    description: row.description,
+    descriptionId: row.description_id ?? legacyDescription ?? "",
+    descriptionEn: row.description_en ?? "",
     thumbnailUrl: row.thumbnail_url,
     techStack: row.tech_stack ?? [],
     features: row.features ?? [],

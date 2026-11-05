@@ -7,6 +7,8 @@ import { Badge } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button";
 import { Modal } from "@/components/ui/modal";
 import { SafeImage } from "@/components/ui/safe-image";
+import { useI18n } from "@/lib/i18n/provider";
+import { getProjectDescription } from "@/lib/utils/project-description";
 import type { Project } from "@/types";
 
 export function ProjectModal({
@@ -16,6 +18,8 @@ export function ProjectModal({
   project: Project | null;
   onClose: () => void;
 }) {
+  const { t, locale } = useI18n();
+
   return (
     <Modal
       open={Boolean(project)}
@@ -44,14 +48,14 @@ export function ProjectModal({
 
           <div className="space-y-6 p-5 sm:p-7">
             <p className="text-sm leading-relaxed text-gray-400">
-              {project.description}
+              {getProjectDescription(project, locale)}
             </p>
 
             <div className="grid gap-3 sm:grid-cols-2">
               <div className="rounded-xl border border-white/[0.08] bg-white/[0.025] p-4">
                 <div className="flex items-center gap-2 text-xs font-semibold text-indigo-300">
                   <Layers3 className="h-3.5 w-3.5" />
-                  Tech stack
+                  {t("projects.modal.techStack")}
                 </div>
                 <div className="mt-3 flex flex-wrap gap-1.5">
                   {project.techStack.length > 0 ? (
@@ -64,7 +68,7 @@ export function ProjectModal({
                       </span>
                     ))
                   ) : (
-                    <span className="text-xs text-gray-600">Not listed</span>
+                    <span className="text-xs text-gray-600">{t("common.notListed")}</span>
                   )}
                 </div>
               </div>
@@ -72,7 +76,7 @@ export function ProjectModal({
               <div className="rounded-xl border border-white/[0.08] bg-white/[0.025] p-4">
                 <div className="flex items-center gap-2 text-xs font-semibold text-purple-300">
                   <Sparkles className="h-3.5 w-3.5" />
-                  Key features
+                  {t("projects.modal.keyFeatures")}
                 </div>
                 <ul className="mt-3 space-y-1.5">
                   {project.features.length > 0 ? (
@@ -86,7 +90,7 @@ export function ProjectModal({
                       </li>
                     ))
                   ) : (
-                    <li className="text-xs text-gray-600">Not listed</li>
+                    <li className="text-xs text-gray-600">{t("common.notListed")}</li>
                   )}
                 </ul>
               </div>
@@ -100,7 +104,7 @@ export function ProjectModal({
                   size="md"
                   icon={<ExternalLink className="h-4 w-4" />}
                 >
-                  Live demo
+                  {t("common.liveDemo")}
                 </ButtonLink>
               )}
               {project.githubUrl && (
@@ -111,7 +115,7 @@ export function ProjectModal({
                   size="md"
                   icon={<GithubIcon className="h-4 w-4" />}
                 >
-                  Source code
+                  {t("common.sourceCode")}
                 </ButtonLink>
               )}
               <Link
@@ -119,7 +123,7 @@ export function ProjectModal({
                 onClick={onClose}
                 className="group ml-auto inline-flex items-center gap-1.5 text-xs font-medium text-indigo-300 transition hover:text-indigo-200"
               >
-                Full case study
+                {t("projects.modal.fullCaseStudy")}
                 <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>
             </div>

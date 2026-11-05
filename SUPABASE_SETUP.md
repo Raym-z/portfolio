@@ -9,6 +9,8 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=
 
 Do **not** expose a service-role key in this app. Every admin operation runs with the signed-in user's session and is protected by RLS.
 
+> Upgrading an existing database? Run `SUPABASE_MIGRATION_PROJECT_LOCALIZED_DESCRIPTION.sql` once in the SQL editor. It renames `projects.description` to `description_id`, adds `description_en`, and preserves existing content as the Indonesian description.
+
 ## 1. Required tables
 
 ### `profiles`
@@ -28,7 +30,8 @@ Do **not** expose a service-role key in this app. Every admin operation runs wit
 | `id`            | `uuid`        | Primary key, default `gen_random_uuid()`.                 |
 | `slug`          | `text`        | Not null, unique. Used by `/projects/[slug]`.             |
 | `title`         | `text`        | Not null.                                                 |
-| `description`   | `text`        | Not null, default `''`.                                   |
+| `description_id`| `text`        | Not null, default `''`. Indonesian description.           |
+| `description_en`| `text`        | Not null, default `''`. English description.               |
 | `thumbnail_url` | `text`        | Nullable public Storage URL.                              |
 | `tech_stack`    | `text[]`      | Not null, default `'{}'`.                                 |
 | `features`      | `text[]`      | Not null, default `'{}'`.                                 |
@@ -98,7 +101,8 @@ create table if not exists public.projects (
   id uuid primary key default gen_random_uuid(),
   slug text not null unique,
   title text not null,
-  description text not null default '',
+  description_id text not null default '',
+  description_en text not null default '',
   thumbnail_url text,
   tech_stack text[] not null default '{}',
   features text[] not null default '{}',

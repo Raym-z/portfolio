@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Braces, CheckCircle2, GitBranch, Layers3, Sparkles, Terminal } from "lucide-react";
+import { useI18n } from "@/lib/i18n/provider";
 
 const codeLines = [
 	{ width: "42%", color: "bg-indigo-400/80" },
@@ -14,6 +15,8 @@ const codeLines = [
 ];
 
 export function DeveloperIllustration() {
+	const { t } = useI18n();
+
 	return (
 		<div className='relative mx-auto flex w-full max-w-lg items-center justify-center'>
 			<div className='absolute inset-0 -z-10 flex items-center justify-center'>
@@ -72,11 +75,11 @@ export function DeveloperIllustration() {
 								<CheckCircle2 className='h-3.5 w-3.5 text-emerald-400' />
 							</span>
 							<div>
-								<p className='text-[10px] font-medium text-gray-200'>Build passing</p>
+								<p className='text-[10px] font-medium text-gray-200'>{t("illustration.buildPassing")}</p>
 								<p className='text-[9px] text-gray-600'>main · 2s ago</p>
 							</div>
 						</div>
-						<span className='rounded-full border border-emerald-400/20 bg-emerald-500/10 px-2 py-0.5 text-[9px] font-medium text-emerald-300'>deployed</span>
+						<span className='rounded-full border border-emerald-400/20 bg-emerald-500/10 px-2 py-0.5 text-[9px] font-medium text-emerald-300'>{t("illustration.deployed")}</span>
 					</div>
 				</div>
 			</motion.div>
@@ -91,8 +94,8 @@ export function DeveloperIllustration() {
 					<Layers3 className='h-3.5 w-3.5 text-indigo-300' />
 				</span>
 				<div>
-					<p className='text-[10px] font-medium text-white'>Design systems</p>
-					<p className='text-[9px] text-gray-500'>scalable by default</p>
+					<p className='text-[10px] font-medium text-white'>{t("illustration.designSystems")}</p>
+					<p className='text-[9px] text-gray-500'>{t("illustration.scalable")}</p>
 				</div>
 			</motion.div>
 
@@ -106,8 +109,8 @@ export function DeveloperIllustration() {
 					<GitBranch className='h-3.5 w-3.5 text-purple-300' />
 				</span>
 				<div>
-					<p className='text-[10px] font-medium text-white'>Shipping weekly</p>
-					<p className='text-[9px] text-gray-500'>iterate, measure, refine</p>
+					<p className='text-[10px] font-medium text-white'>{t("illustration.shippingWeekly")}</p>
+					<p className='text-[9px] text-gray-500'>{t("illustration.iterate")}</p>
 				</div>
 			</motion.div>
 
@@ -117,7 +120,7 @@ export function DeveloperIllustration() {
 				className='absolute -top-2 right-10 flex items-center gap-1.5 rounded-full border border-indigo-400/25 bg-indigo-500/10 px-2.5 py-1 text-[10px] font-medium text-indigo-200 backdrop-blur sm:right-16'
 			>
 				<Sparkles className='h-3 w-3' />
-				Available
+				{t("illustration.available")}
 			</motion.div>
 		</div>
 	);

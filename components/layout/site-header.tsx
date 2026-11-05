@@ -6,10 +6,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { siteConfig } from "@/lib/site-config";
+import { LocaleToggle } from "@/components/ui/locale-toggle";
+import { useI18n } from "@/lib/i18n/provider";
 import { cn } from "@/lib/utils/cn";
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const { t } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");
@@ -146,7 +149,7 @@ export function SiteHeader() {
                       : "text-gray-400 group-hover:text-white",
                   )}
                 >
-                  {item.label}
+                  {t(item.labelKey)}
                 </span>
                 <span
                   className={cn(
@@ -162,12 +165,13 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
+          <LocaleToggle />
           <Link
             href="/login"
             className="flex h-9 items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] px-3 text-xs font-medium text-gray-300 transition hover:border-indigo-400/30 hover:bg-white/[0.07] hover:text-white"
           >
             <Lock className="h-3.5 w-3.5" />
-            Admin
+            {t("nav.admin")}
           </Link>
           <Link
             href={isHome ? "#contact" : "/#contact"}
@@ -176,19 +180,22 @@ export function SiteHeader() {
           >
             <span className="absolute inset-0 -translate-x-[130%] skew-x-[-12deg] bg-white/25 transition-transform duration-700 group-hover:translate-x-[230%]" />
             <Sparkles className="relative h-3.5 w-3.5" />
-            <span className="relative">Let&apos;s talk</span>
+            <span className="relative">{t("nav.letsTalk")}</span>
           </Link>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen((value) => !value)}
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-gray-300 transition hover:text-white lg:hidden"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <LocaleToggle />
+          <button
+            type="button"
+            onClick={() => setOpen((value) => !value)}
+            aria-label={open ? t("nav.closeMenu") : t("nav.openMenu")}
+            aria-expanded={open}
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-gray-300 transition hover:text-white"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -222,7 +229,7 @@ export function SiteHeader() {
                           : "text-gray-400 hover:bg-white/5 hover:text-white",
                       )}
                     >
-                      {item.label}
+                      {t(item.labelKey)}
                       {isActive && (
                         <span className="h-1.5 w-1.5 rounded-full bg-indigo-400" />
                       )}
@@ -236,14 +243,14 @@ export function SiteHeader() {
                   onClick={() => setOpen(false)}
                   className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] py-3 text-sm text-gray-300"
                 >
-                  <Lock className="h-4 w-4" /> Admin
+                  <Lock className="h-4 w-4" /> {t("nav.admin")}
                 </Link>
                 <Link
                   href={isHome ? "#contact" : "/#contact"}
                   onClick={(event) => handleAnchor(event, "#contact")}
                   className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 py-3 text-sm font-semibold text-white"
                 >
-                  <Sparkles className="h-4 w-4" /> Let&apos;s talk
+                  <Sparkles className="h-4 w-4" /> {t("nav.letsTalk")}
                 </Link>
               </div>
             </div>

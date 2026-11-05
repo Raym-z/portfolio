@@ -1,6 +1,7 @@
 import { ArrowUpRight, Lock } from "lucide-react";
 import Link from "next/link";
 import { PlatformIcon } from "@/components/ui/platform-icon";
+import { T } from "@/components/ui/translated-text";
 import { siteConfig } from "@/lib/site-config";
 
 const currentYear = new Date().getFullYear();
@@ -27,21 +28,21 @@ export function SiteFooter() {
 					</div>
 
 					<div>
-						<p className='text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-500'>Explore</p>
+						<p className='text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-500'><T k='footer.explore' /></p>
 						<div className='mt-4 grid grid-cols-2 gap-2 text-sm'>
 							{siteConfig.nav.map((item) => (
 								<Link key={item.href} href={`/${item.href}`} className='text-gray-400 transition hover:text-white'>
-									{item.label}
+									<T k={item.labelKey} />
 								</Link>
 							))}
 							<Link href='/projects' className='text-gray-400 transition hover:text-white'>
-								All projects
+								<T k='common.allProjects' />
 							</Link>
 						</div>
 					</div>
 
 					<div>
-						<p className='text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-500'>Elsewhere</p>
+						<p className='text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-500'><T k='footer.elsewhere' /></p>
 						<div className='mt-4 space-y-2.5'>
 							{siteConfig.socials.map((social) => (
 								<a key={social.platform} href={social.href} target='_blank' rel='noopener noreferrer' className='group flex items-center gap-2.5 text-sm text-gray-400 transition hover:text-white'>
@@ -58,12 +59,12 @@ export function SiteFooter() {
 
 				<div className='mt-10 flex flex-col items-center justify-between gap-3 border-t border-white/[0.06] pt-6 text-xs text-gray-600 sm:flex-row'>
 					<p>
-						© {currentYear} {siteConfig.name}. All rights reserved.
+						<T k='footer.rights' vars={{ year: currentYear, name: siteConfig.name }} />
 					</p>
 					<div className='flex items-center gap-4'>
 						{/* <span>Built with Next.js, Supabase &amp; Tailwind CSS</span> */}
 						<Link href='/login' className='inline-flex items-center gap-1 transition hover:text-gray-300'>
-							<Lock className='h-3 w-3' /> Admin
+							<Lock className='h-3 w-3' /> <T k='nav.admin' />
 						</Link>
 					</div>
 				</div>

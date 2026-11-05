@@ -2,7 +2,8 @@ export type Project = {
   id: string;
   slug: string;
   title: string;
-  description: string;
+  descriptionId: string;
+  descriptionEn: string;
   thumbnailUrl: string | null;
   techStack: string[];
   features: string[];
@@ -52,7 +53,8 @@ export type ContactMessage = {
 
 export type ProjectInput = {
   title: string;
-  description: string;
+  descriptionId: string;
+  descriptionEn: string;
   thumbnailUrl?: string | null;
   techStack: string[];
   features: string[];

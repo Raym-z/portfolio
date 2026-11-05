@@ -1,7 +1,10 @@
 import { ArrowLeft, Home, SearchX } from "lucide-react";
 import Link from "next/link";
+import { defaultLocale, translate } from "@/lib/i18n/config";
 
 export default function NotFound() {
+  const t = (key: string) => translate(defaultLocale, key);
+
   return (
     <div className="relative flex min-h-dvh items-center justify-center overflow-hidden bg-[#030014] px-4">
       <div className="pointer-events-none absolute inset-0">
@@ -18,11 +21,10 @@ export default function NotFound() {
           404
         </p>
         <h1 className="mt-4 text-2xl font-semibold text-white sm:text-3xl">
-          This page took a wrong turn
+          {t("notFound.title")}
         </h1>
         <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-gray-500">
-          The page you are looking for may have moved, been deleted, or never
-          existed in the first place.
+          {t("notFound.description")}
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link
@@ -30,14 +32,14 @@ export default function NotFound() {
             className="inline-flex h-11 items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 px-5 text-sm font-semibold text-white transition hover:brightness-110"
           >
             <Home className="h-4 w-4" />
-            Back home
+            {t("notFound.backHome")}
           </Link>
           <Link
             href="/projects"
             className="inline-flex h-11 items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-5 text-sm text-gray-300 transition hover:border-white/20 hover:text-white"
           >
             <ArrowLeft className="h-4 w-4" />
-            Browse projects
+            {t("notFound.browseProjects")}
           </Link>
         </div>
       </div>

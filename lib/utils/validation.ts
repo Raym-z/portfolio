@@ -1,51 +1,93 @@
 import { z } from "zod";
+import { defaultLocale, translate } from "@/lib/i18n/config";
 import { containsProfanity } from "@/lib/utils/profanity";
 
-const respectful = (message: string) =>
-  z.string().refine((value) => !containsProfanity(value), { message });
+type Translator = (
+  key: string,
+  vars?: Record<string, string | number>,
+) => string;
 
-export const commentSchema = z.object({
-  userName: z
-    .string()
-    .trim()
-    .min(2, "Name must be at least 2 characters.")
-    .max(40, "Name must be 40 characters or fewer.")
-    .pipe(respectful("Please keep your name respectful.")),
-  content: z
-    .string()
-    .trim()
-    .min(2, "Message must be at least 2 characters.")
-    .max(500, "Message must be 500 characters or fewer.")
-    .pipe(respectful("Please remove inappropriate language from your message.")),
-});
+const defaultTranslate: Translator = (key) => translate(defaultLocale, key);
 
-export const contactSchema = z.object({
-  name: z
+const respectful = (t: Translator) =>
+  z
     .string()
-    .trim()
-    .min(2, "Please enter your name.")
-    .max(80, "Name is too long."),
-  email: z.string().trim().email("Please enter a valid email address."),
-  message: z
-    .string()
-    .trim()
-    .min(10, "Message must be at least 10 characters.")
-    .max(2000, "Message is too long."),
-  website: z.string().max(0).optional().or(z.literal("")),
-});
+    .refine((value) => !containsProfanity(value), {
+      message: t("validation.messageProfanity"),
+    });
+
+export function createCommentSchema(t: Translator = defaultTranslate) {
+  return z.object({
+    userName: z
+      .string()
+      .trim()
+      .min(2, t("validation.nameMin"))
+      .max(40, t("validation.nameMax"))
+      .pipe(
+        z
+          .string()
+          .refine((value) => !containsProfanity(value), {
+            message: t("validation.nameRespectful"),
+          }),
+      ),
+    content: z
+      .string()
+      .trim()
+      .min(2, t("validation.messageMin"))
+      .max(500, t("validation.messageMax"))
+      .pipe(respectful(t)),
+  });
+}
+
+export const commentSchema = createCommentSchema();
+
+export function createContactSchema(t: Translator = defaultTranslate) {
+  return z.object({
+    name: z
+      .string()
+      .trim()
+      .min(2, t("validation.contactName"))
+      .max(80, t("validation.contactNameMax")),
+    email: z.string().trim().email(t("validation.contactEmail")),
+    message: z
+      .string()
+      .trim()
+      .min(10, t("validation.contactMessageMin"))
+      .max(2000, t("validation.contactMessageMax")),
+    website: z.string().max(0).optional().or(z.literal("")),
+  });
+}
+
+export const contactSchema = createContactSchema();
 
 export const projectSchema = z.object({
   title: z.string().trim().min(2, "Title is required.").max(120),
-  description: z.string().trim().min(10, "Description is required.").max(4000),
+  descriptionId: z
+    .string()
+    .trim()
+    .min(10, "Indonesian description is required.")
+    .max(4000),
+  descriptionEn: z
+    .string()
+    .trim()
+    .min(10, "English description is required.")
+    .max(4000),
   techStack: z.array(z.string().trim().min(1)).max(30),
   features: z.array(z.string().trim().min(1)).max(30),
-  liveUrl: z.string().trim().url("Live URL must be valid.").optional().or(z.literal("")),
+  liveUrl: z
+    .string()
+    .trim()
+    .url("Live URL must be valid.")
+    .or(z.literal(""))
+    .or(z.null())
+    .optional(),
   githubUrl: z
     .string()
     .trim()
     .url("GitHub URL must be valid.")
-    .optional()
-    .or(z.literal("")),
+    .or(z.literal(""))
+    .or(z.null())
+    .optional(),
   published: z.boolean(),
   displayOrder: z.number().int().min(0).max(9999),
 });

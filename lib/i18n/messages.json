@@ -1,0 +1,564 @@
+{
+  "en": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "projects": "Projects",
+      "research": "Research",
+      "contact": "Contact",
+      "admin": "Admin",
+      "letsTalk": "Let's talk",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "locale": "Language"
+    },
+    "common": {
+      "viewProjects": "View projects",
+      "downloadCv": "Download CV",
+      "allProjects": "All projects",
+      "showLess": "Show less",
+      "showAllProjects": "Show all projects",
+      "liveDemo": "Live demo",
+      "sourceCode": "Source code",
+      "details": "Details",
+      "code": "Code",
+      "noDemo": "No demo",
+      "live": "Live",
+      "draft": "Draft",
+      "notListed": "Not listed",
+      "back": "Back",
+      "viewAll": "View all",
+      "clearFilter": "Clear filter",
+      "available": "Available",
+      "all": "All"
+    },
+    "hero": {
+      "badge": "Open to full-stack & backend roles",
+      "greeting": "I'm a",
+      "role": "Full-Stack Developer",
+      "titles": [
+        "Backend Engineer",
+        "Full-Stack Developer",
+        "Real-Time Systems Builder",
+        "AI & ML Researcher"
+      ],
+      "summary": "Building reliable, efficient, and well-structured backend systems for digital solutions.",
+      "findMe": "Find me",
+      "scroll": "Scroll to explore",
+      "contactMe": "Contact me"
+    },
+    "about": {
+      "eyebrow": "About me",
+      "titleLead": "Building systems that",
+      "titleHighlight": "keep up",
+      "intro": "Where creativity meets technology.",
+      "background": "I'm a Computer Science graduate from BINUS University with a 3.79/4.00 GPA and an exchange semester at the University of Southern Denmark. I also have experience as a full-stack developer intern building government visa and immigration systems.",
+      "quote": "The best systems are the ones users never have to think about.",
+      "available": "Available for work",
+      "portraitAlt": "{name} portrait",
+      "stats": {
+        "projects": {
+          "label": "Projects shipped",
+          "description": "Selected work across products and tools"
+        },
+        "credentials": {
+          "label": "Research & credentials",
+          "description": "Peer-reviewed papers and certifications"
+        },
+        "years": {
+          "label": "Years building",
+          "description": "From first project to production systems"
+        }
+      },
+      "experience": {
+        "eyebrow": "Experience & education",
+        "title": "Where I've learned and shipped",
+        "description": "Industry work, formal study, and an international exchange — each one shaped how I approach building software."
+      },
+      "timeline": {
+        "work": {
+          "title": "Full-Stack Developer Intern",
+          "organization": "PT. Pro Sistimatika Automasi",
+          "period": "Sep 2025 – Feb 2026",
+          "description": "Built and maintained an internal government visa and immigration platform, including PDF report generation and end-to-end workflow features."
+        },
+        "education": {
+          "title": "B.Sc. Computer Science",
+          "organization": "Bina Nusantara University",
+          "period": "Sep 2022 – Aug 2026",
+          "description": "Completed the Computer Science Global Class Program in 7 semesters, achieving a GPA of 3.79/4.00."
+        },
+        "exchange": {
+          "title": "Exchange Semester",
+          "organization": "University of Southern Denmark",
+          "period": "Jan - Jul 2025",
+          "description": "Completed one semester of study abroad in Denmark."
+        }
+      }
+    },
+    "projects": {
+      "eyebrow": "Selected work",
+      "titleLead": "Projects that",
+      "titleHighlight": "shipped",
+      "description": "A few products, tools, and experiments. Each one is a snapshot of a problem I enjoyed solving.",
+      "errorTitle": "Projects are temporarily unavailable",
+      "emptyTitle": "No projects published yet",
+      "emptyDescription": "Published projects will appear here as soon as they are added from the admin dashboard.",
+      "filterEmptyTitle": "No projects match that filter",
+      "filterEmptyDescription": "Try a different technology or clear the filter.",
+      "card": {
+        "openAria": "Open {title} details"
+      },
+      "modal": {
+        "techStack": "Tech stack",
+        "keyFeatures": "Key features",
+        "fullCaseStudy": "Full case study"
+      },
+      "archive": {
+        "eyebrow": "Archive",
+        "titleLead": "All",
+        "titleHighlight": "projects",
+        "description": "Every published project, from production applications to internal tools and experiments. Filter by the technologies you care about."
+      },
+      "cta": {
+        "title": "Have a project in mind?",
+        "description": "I'm always interested in thoughtful products and teams.",
+        "button": "Start a conversation"
+      },
+      "backHome": "← Back to home",
+      "detail": {
+        "back": "Back",
+        "breadcrumb": "Projects",
+        "technologies": "Technologies",
+        "keyFeatures": "Key features",
+        "technologiesUsed": "Technologies used",
+        "noTechnologies": "No technologies listed.",
+        "noFeatures": "No features listed.",
+        "builtWithIntent": "Built with intent",
+        "builtWithIntentDescription": "Every project is an opportunity to improve performance, accessibility, and the small details that make a product feel trustworthy.",
+        "moreProjects": "More projects",
+        "viewAll": "View all",
+        "discuss": "Discuss a project",
+        "notFound": "Project not found"
+      }
+    },
+    "certificates": {
+      "eyebrow": "Research & credentials",
+      "titleLead": "Published",
+      "titleHighlight": "research",
+      "description": "Peer-reviewed work on machine learning and AI-generated media, plus selected credentials. Click a card to open its publication or view the certificate.",
+      "errorTitle": "Research and credentials are temporarily unavailable",
+      "emptyTitle": "No research or credentials yet",
+      "emptyDescription": "Publications and certificates uploaded from the admin dashboard will be displayed here.",
+      "readPublication": "Read publication",
+      "showCertificate": "Show certificate",
+      "viewAll": "View all {count} entries",
+      "previous": "Previous entry",
+      "next": "Next entry"
+    },
+    "comments": {
+      "eyebrow": "Guestbook",
+      "titleLead": "Leave a",
+      "titleHighlight": "note",
+      "description": "Have a question, a project idea, or just want to say hello? Drop a comment below — pinned notes appear at the top.",
+      "formTitle": "Write a comment",
+      "formSubtitle": "Be respectful. Comments are public.",
+      "name": "Name",
+      "message": "Message",
+      "profilePhoto": "Profile photo",
+      "optional": "(optional)",
+      "choosePhoto": "Choose a profile photo",
+      "maxSize": "Max 5 MB",
+      "placeholderName": "Your name",
+      "placeholderMessage": "Share a thought, question, or hello...",
+      "post": "Post comment",
+      "posting": "Posting...",
+      "heading": "Comments",
+      "realtime": "Realtime",
+      "noCommentsTitle": "No comments yet",
+      "noCommentsDescription": "Be the first to leave a note.",
+      "pinned": "Pinned comment",
+      "admin": "Admin",
+      "avatarAlt": "{name}'s avatar",
+      "removePhoto": "Remove photo",
+      "errors": {
+        "load": "Could not load comments.",
+        "post": "Could not post your comment.",
+        "invalidImage": "Please choose a valid image file.",
+        "imageTooLarge": "Profile image must be smaller than 5 MB.",
+        "checkForm": "Please check the form.",
+        "notConnected": "Comments are not connected yet. Add your Supabase credentials to enable posting.",
+        "demoNotice": "Comments are showing demo data. Connect Supabase to enable posting and realtime updates."
+      },
+      "postedTitle": "Comment posted",
+      "postedText": "Thanks for joining the conversation."
+    },
+    "contact": {
+      "eyebrow": "Contact",
+      "titleLead": "Let's build something",
+      "titleHighlight": "worth using",
+      "description": "Have a project, a role, or an idea worth exploring? Send a message and I'll reply as soon as I can.",
+      "formTitle": "Send a message",
+      "formSubtitle": "I usually reply within one business day.",
+      "name": "Your name",
+      "email": "Your email",
+      "message": "Message",
+      "namePlaceholder": "Your Name",
+      "emailPlaceholder": "you@company.com",
+      "messagePlaceholder": "Tell me a little about the project, timeline, and what success looks like...",
+      "send": "Send message",
+      "sending": "Sending...",
+      "error": "Could not send your message. Please try again.",
+      "supabaseWarning": "The form needs Supabase credentials. Until then, use the email button on the right.",
+      "preferEmail": "Prefer email?",
+      "preferEmailDescription": "Reach out directly and I'll get back to you from a real inbox, not a no-reply address.",
+      "copy": "Copy",
+      "copied": "Copied",
+      "emailMe": "Email me",
+      "repliesIn": "Replies in < 24h",
+      "findMeElsewhere": "Find me elsewhere",
+      "location": "Indonesia · Open to remote",
+      "toasts": {
+        "sentTitle": "Message sent",
+        "sentText": "Thanks for reaching out. I'll get back to you soon.",
+        "notSentTitle": "Message not sent",
+        "copiedTitle": "Email copied",
+        "copyFailedTitle": "Could not copy email"
+      }
+    },
+    "footer": {
+      "explore": "Explore",
+      "elsewhere": "Elsewhere",
+      "rights": "© {year} {name}. All rights reserved."
+    },
+    "intro": {
+      "welcome": "Welcome To My",
+      "portfolio": "Portfolio Website"
+    },
+    "illustration": {
+      "buildPassing": "Build passing",
+      "deployed": "deployed",
+      "designSystems": "Design systems",
+      "scalable": "scalable by default",
+      "shippingWeekly": "Shipping weekly",
+      "iterate": "iterate, measure, refine",
+      "available": "Available"
+    },
+    "date": {
+      "justNow": "Just now",
+      "minutesAgo": "{count}m ago",
+      "hoursAgo": "{count}h ago",
+      "daysAgo": "{count}d ago"
+    },
+    "states": {
+      "error": "Something went wrong"
+    },
+    "notFound": {
+      "title": "This page took a wrong turn",
+      "description": "The page you are looking for may have moved, been deleted, or never existed in the first place.",
+      "backHome": "Back home",
+      "browseProjects": "Browse projects"
+    },
+    "publicError": {
+      "title": "Something went wrong",
+      "fallback": "The page could not be loaded. This is usually temporary.",
+      "retry": "Try again",
+      "backHome": "Back home"
+    },
+    "validation": {
+      "nameMin": "Name must be at least 2 characters.",
+      "nameMax": "Name must be 40 characters or fewer.",
+      "nameRespectful": "Please keep your name respectful.",
+      "messageMin": "Message must be at least 2 characters.",
+      "messageMax": "Message must be 500 characters or fewer.",
+      "messageProfanity": "Please remove inappropriate language from your message.",
+      "contactName": "Please enter your name.",
+      "contactNameMax": "Name is too long.",
+      "contactEmail": "Please enter a valid email address.",
+      "contactMessageMin": "Message must be at least 10 characters.",
+      "contactMessageMax": "Message is too long.",
+      "checkForm": "Please check the form."
+    }
+  },
+  "id": {
+    "nav": {
+      "home": "Beranda",
+      "about": "Tentang",
+      "projects": "Proyek",
+      "research": "Riset",
+      "contact": "Kontak",
+      "admin": "Admin",
+      "letsTalk": "Mari bicara",
+      "openMenu": "Buka menu",
+      "closeMenu": "Tutup menu",
+      "locale": "Bahasa"
+    },
+    "common": {
+      "viewProjects": "Lihat proyek",
+      "downloadCv": "Unduh CV",
+      "allProjects": "Semua proyek",
+      "showLess": "Tampilkan lebih sedikit",
+      "showAllProjects": "Tampilkan semua proyek",
+      "liveDemo": "Demo langsung",
+      "sourceCode": "Kode sumber",
+      "details": "Detail",
+      "code": "Code",
+      "noDemo": "Tanpa demo",
+      "live": "Live",
+      "draft": "Draf",
+      "notListed": "Belum tercantum",
+      "back": "Kembali",
+      "viewAll": "Lihat semua",
+      "clearFilter": "Hapus filter",
+      "available": "Tersedia",
+      "all": "Semua"
+    },
+    "hero": {
+      "badge": "Terbuka untuk peran full-stack & backend",
+      "greeting": "Saya seorang",
+      "role": "Full-Stack Developer",
+      "titles": [
+        "Backend Engineer",
+        "Full-Stack Developer",
+        "Pembangun Sistem Real-Time",
+        "Peneliti AI & ML"
+      ],
+      "summary": "Membangun Sistem Backend yang Andal, Efisien, dan Terstruktur untuk Solusi Digital.",
+      "findMe": "Temukan saya",
+      "scroll": "Gulir untuk menjelajah",
+      "contactMe": "Hubungi saya"
+    },
+    "about": {
+      "eyebrow": "Tentang saya",
+      "titleLead": "Membangun sistem yang",
+      "titleHighlight": "terus berkembang",
+      "intro": "Tempat kreativitas bertemu teknologi.",
+      "background": "Saya merupakan lulusan Teknik Informatika BINUS dengan IPK 3,79/4,00 dan pernah mengikuti program pertukaran di University of Southern Denmark. Saya juga memiliki pengalaman sebagai full-stack developer intern dalam pengembangan sistem visa dan imigrasi pemerintah.",
+      "quote": "Sistem terbaik adalah sistem yang tidak pernah perlu dipikirkan penggunanya.",
+      "available": "Tersedia untuk bekerja",
+      "portraitAlt": "Potret {name}",
+      "stats": {
+        "projects": {
+          "label": "Proyek dirilis",
+          "description": "Karya pilihan di berbagai produk dan alat"
+        },
+        "credentials": {
+          "label": "Riset & kredensial",
+          "description": "Makalah peer-review dan sertifikasi"
+        },
+        "years": {
+          "label": "Tahun berkarya",
+          "description": "Dari proyek pertama hingga sistem produksi"
+        }
+      },
+      "experience": {
+        "eyebrow": "Pengalaman & pendidikan",
+        "title": "Tempat saya belajar dan berkarya",
+        "description": "Pekerjaan industri, studi formal, dan pertukaran internasional — semuanya membentuk cara saya membangun perangkat lunak."
+      },
+      "timeline": {
+        "work": {
+          "title": "Magang Full-Stack Developer",
+          "organization": "PT. Pro Sistimatika Automasi",
+          "period": "Sep 2025 – Feb 2026",
+          "description": "Membangun dan memelihara platform visa dan imigrasi pemerintah internal, termasuk pembuatan laporan PDF dan fitur alur kerja end-to-end."
+        },
+        "education": {
+          "title": "S1 Ilmu Komputer",
+          "organization": "Universitas Bina Nusantara",
+          "period": "Sep 2022 – Agu 2026",
+          "description": "Menyelesaikan Program Kelas Global Teknik Informatika dalam 7 semester dengan memperoleh IPK 3,79/4,00."
+        },
+        "exchange": {
+          "title": "Semester Pertukaran",
+          "organization": "University of Southern Denmark",
+          "period": "Jan - Jul 2025",
+          "description": "Menyelesaikan satu semester studi di luar negeri di Denmark."
+        }
+      }
+    },
+    "projects": {
+      "eyebrow": "Karya pilihan",
+      "titleLead": "Proyek yang",
+      "titleHighlight": "dirilis",
+      "description": "Beberapa produk, alat, dan eksperimen. Masing-masing adalah potret masalah yang saya nikmati untuk dipecahkan.",
+      "errorTitle": "Proyek sementara tidak tersedia",
+      "emptyTitle": "Belum ada proyek yang dirilis",
+      "emptyDescription": "Proyek yang dirilis akan muncul di sini setelah ditambahkan dari dasbor admin.",
+      "filterEmptyTitle": "Tidak ada proyek yang cocok dengan filter itu",
+      "filterEmptyDescription": "Coba teknologi lain atau hapus filter.",
+      "card": {
+        "openAria": "Buka detail {title}"
+      },
+      "modal": {
+        "techStack": "Teknologi",
+        "keyFeatures": "Fitur utama",
+        "fullCaseStudy": "Studi kasus lengkap"
+      },
+      "archive": {
+        "eyebrow": "Arsip",
+        "titleLead": "Semua",
+        "titleHighlight": "proyek",
+        "description": "Semua proyek yang dirilis, dari aplikasi produksi hingga alat internal dan eksperimen. Filter berdasarkan teknologi yang Anda minati."
+      },
+      "cta": {
+        "title": "Punya proyek dalam pikiran?",
+        "description": "Saya selalu tertarik pada produk dan tim yang dipikirkan matang.",
+        "button": "Mulai percakapan"
+      },
+      "backHome": "← Kembali ke beranda",
+      "detail": {
+        "back": "Kembali",
+        "breadcrumb": "Proyek",
+        "technologies": "Teknologi",
+        "keyFeatures": "Fitur utama",
+        "technologiesUsed": "Teknologi yang digunakan",
+        "noTechnologies": "Belum ada teknologi tercantum.",
+        "noFeatures": "Belum ada fitur tercantum.",
+        "builtWithIntent": "Dibangun dengan niat",
+        "builtWithIntentDescription": "Setiap proyek adalah kesempatan untuk meningkatkan performa, aksesibilitas, dan detail kecil yang membuat produk terasa dapat dipercaya.",
+        "moreProjects": "Proyek lainnya",
+        "viewAll": "Lihat semua",
+        "discuss": "Diskusikan proyek",
+        "notFound": "Proyek tidak ditemukan"
+      }
+    },
+    "certificates": {
+      "eyebrow": "Riset & kredensial",
+      "titleLead": "Riset",
+      "titleHighlight": "terbit",
+      "description": "Karya peer-review tentang machine learning dan media buatan AI, serta kredensial pilihan. Klik kartu untuk membuka publikasi atau melihat sertifikat.",
+      "errorTitle": "Riset dan kredensial sementara tidak tersedia",
+      "emptyTitle": "Belum ada riset atau kredensial",
+      "emptyDescription": "Publikasi dan sertifikat yang diunggah dari dasbor admin akan ditampilkan di sini.",
+      "readPublication": "Baca publikasi",
+      "showCertificate": "Lihat sertifikat",
+      "viewAll": "Lihat semua {count} entri",
+      "previous": "Entri sebelumnya",
+      "next": "Entri berikutnya"
+    },
+    "comments": {
+      "eyebrow": "Buku tamu",
+      "titleLead": "Tinggalkan",
+      "titleHighlight": "catatan",
+      "description": "Punya pertanyaan, ide proyek, atau sekadar ingin menyapa? Tinggalkan komentar di bawah — catatan yang disematkan muncul di atas.",
+      "formTitle": "Tulis komentar",
+      "formSubtitle": "Jaga etika. Komentar bersifat publik.",
+      "name": "Nama",
+      "message": "Pesan",
+      "profilePhoto": "Foto profil",
+      "optional": "(opsional)",
+      "choosePhoto": "Pilih foto profil",
+      "maxSize": "Maks 5 MB",
+      "placeholderName": "Nama Anda",
+      "placeholderMessage": "Bagikan pemikiran, pertanyaan, atau salam...",
+      "post": "Kirim komentar",
+      "posting": "Mengirim...",
+      "heading": "Komentar",
+      "realtime": "Real-time",
+      "noCommentsTitle": "Belum ada komentar",
+      "noCommentsDescription": "Jadilah yang pertama meninggalkan catatan.",
+      "pinned": "Komentar disematkan",
+      "admin": "Admin",
+      "avatarAlt": "Avatar {name}",
+      "removePhoto": "Hapus foto",
+      "errors": {
+        "load": "Tidak dapat memuat komentar.",
+        "post": "Tidak dapat mengirim komentar Anda.",
+        "invalidImage": "Pilih file gambar yang valid.",
+        "imageTooLarge": "Foto profil harus lebih kecil dari 5 MB.",
+        "checkForm": "Periksa kembali formulir.",
+        "notConnected": "Komentar belum terhubung. Tambahkan kredensial Supabase untuk mengaktifkan pengiriman.",
+        "demoNotice": "Komentar menampilkan data demo. Hubungkan Supabase untuk mengaktifkan pengiriman dan pembaruan real-time."
+      },
+      "postedTitle": "Komentar terkirim",
+      "postedText": "Terima kasih telah bergabung dalam percakapan."
+    },
+    "contact": {
+      "eyebrow": "Kontak",
+      "titleLead": "Mari membangun sesuatu",
+      "titleHighlight": "yang layak digunakan",
+      "description": "Punya proyek, peran, atau ide yang layak dijelajahi? Kirim pesan dan saya akan membalas secepatnya.",
+      "formTitle": "Kirim pesan",
+      "formSubtitle": "Biasanya saya membalas dalam satu hari kerja.",
+      "name": "Nama Anda",
+      "email": "Email Anda",
+      "message": "Pesan",
+      "namePlaceholder": "Nama Anda",
+      "emailPlaceholder": "anda@perusahaan.com",
+      "messagePlaceholder": "Ceritakan sedikit tentang proyek, tenggat, dan seperti apa keberhasilan menurut Anda...",
+      "send": "Kirim pesan",
+      "sending": "Mengirim...",
+      "error": "Tidak dapat mengirim pesan Anda. Silakan coba lagi.",
+      "supabaseWarning": "Formulir membutuhkan kredensial Supabase. Sementara itu, gunakan tombol email di sebelah kanan.",
+      "preferEmail": "Lebih suka email?",
+      "preferEmailDescription": "Hubungi langsung dan saya akan membalas dari kotak masuk sungguhan, bukan alamat no-reply.",
+      "copy": "Salin",
+      "copied": "Tersalin",
+      "emailMe": "Email saya",
+      "repliesIn": "Balas < 24 jam",
+      "findMeElsewhere": "Temukan saya di tempat lain",
+      "location": "Indonesia · Terbuka untuk remote",
+      "toasts": {
+        "sentTitle": "Pesan terkirim",
+        "sentText": "Terima kasih telah menghubungi. Saya akan segera membalas.",
+        "notSentTitle": "Pesan tidak terkirim",
+        "copiedTitle": "Email disalin",
+        "copyFailedTitle": "Tidak dapat menyalin email"
+      }
+    },
+    "footer": {
+      "explore": "Jelajahi",
+      "elsewhere": "Di tempat lain",
+      "rights": "© {year} {name}. Hak cipta dilindungi."
+    },
+    "intro": {
+      "welcome": "Selamat Datang di",
+      "portfolio": "Website Portofolio"
+    },
+    "illustration": {
+      "buildPassing": "Build berhasil",
+      "deployed": "terpasang",
+      "designSystems": "Sistem desain",
+      "scalable": "skalabel secara default",
+      "shippingWeekly": "Rilis tiap minggu",
+      "iterate": "iterasi, ukur, sempurnakan",
+      "available": "Tersedia"
+    },
+    "date": {
+      "justNow": "Baru saja",
+      "minutesAgo": "{count} mnt lalu",
+      "hoursAgo": "{count} jam lalu",
+      "daysAgo": "{count} hari lalu"
+    },
+    "states": {
+      "error": "Terjadi kesalahan"
+    },
+    "notFound": {
+      "title": "Halaman ini salah arah",
+      "description": "Halaman yang Anda cari mungkin telah dipindahkan, dihapus, atau memang tidak pernah ada.",
+      "backHome": "Kembali ke beranda",
+      "browseProjects": "Jelajahi proyek"
+    },
+    "publicError": {
+      "title": "Terjadi kesalahan",
+      "fallback": "Halaman tidak dapat dimuat. Biasanya ini sementara.",
+      "retry": "Coba lagi",
+      "backHome": "Kembali ke beranda"
+    },
+    "validation": {
+      "nameMin": "Nama minimal 2 karakter.",
+      "nameMax": "Nama maksimal 40 karakter.",
+      "nameRespectful": "Mohon gunakan nama yang sopan.",
+      "messageMin": "Pesan minimal 2 karakter.",
+      "messageMax": "Pesan maksimal 500 karakter.",
+      "messageProfanity": "Hapus kata-kata tidak pantas dari pesan Anda.",
+      "contactName": "Silakan masukkan nama Anda.",
+      "contactNameMax": "Nama terlalu panjang.",
+      "contactEmail": "Silakan masukkan alamat email yang valid.",
+      "contactMessageMin": "Pesan minimal 10 karakter.",
+      "contactMessageMax": "Pesan terlalu panjang.",
+      "checkForm": "Periksa kembali formulir."
+    }
+  }
+}

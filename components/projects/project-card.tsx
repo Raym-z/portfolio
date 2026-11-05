@@ -5,6 +5,8 @@ import { GithubIcon } from "@/components/ui/brand-icons";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { SafeImage } from "@/components/ui/safe-image";
+import { useI18n } from "@/lib/i18n/provider";
+import { getProjectDescription } from "@/lib/utils/project-description";
 import type { Project } from "@/types";
 
 export function ProjectCard({
@@ -14,6 +16,8 @@ export function ProjectCard({
   project: Project;
   onOpen: (project: Project) => void;
 }) {
+  const { t, locale } = useI18n();
+
   return (
     <article className="group relative h-full">
       <div className="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br from-indigo-500/40 via-purple-500/20 to-transparent opacity-0 blur transition duration-500 group-hover:opacity-100" />
@@ -22,7 +26,7 @@ export function ProjectCard({
           type="button"
           onClick={() => onOpen(project)}
           className="relative block aspect-[16/9] w-full overflow-hidden text-left"
-          aria-label={`Open ${project.title} details`}
+          aria-label={t("projects.card.openAria", { title: project.title })}
         >
           <SafeImage
             src={project.thumbnailUrl}
@@ -59,17 +63,17 @@ export function ProjectCard({
             </h3>
             {project.published ? (
               <Badge variant="green" className="shrink-0">
-                Live
+                {t("common.live")}
               </Badge>
             ) : (
               <Badge variant="amber" className="shrink-0">
-                Draft
+                {t("common.draft")}
               </Badge>
             )}
           </div>
 
           <p className="mt-2 line-clamp-2 flex-1 text-xs leading-relaxed text-gray-400">
-            {project.description}
+            {getProjectDescription(project, locale)}
           </p>
 
           <div className="mt-4 flex items-center justify-between border-t border-white/[0.07] pt-4">
@@ -82,11 +86,11 @@ export function ProjectCard({
                   className="inline-flex items-center gap-1 rounded-lg px-2 py-1.5 text-[11px] font-medium text-indigo-300 transition hover:bg-indigo-500/10 hover:text-indigo-200"
                 >
                   <ExternalLink className="h-3 w-3" />
-                  Live demo
+                  {t("common.liveDemo")}
                 </a>
               ) : (
                 <span className="px-2 py-1.5 text-[11px] text-gray-600">
-                  No demo
+                  {t("common.noDemo")}
                 </span>
               )}
               {project.githubUrl && (
@@ -97,7 +101,7 @@ export function ProjectCard({
                   className="inline-flex items-center gap-1 rounded-lg px-2 py-1.5 text-[11px] font-medium text-gray-400 transition hover:bg-white/5 hover:text-white"
                 >
                   <GithubIcon className="h-3 w-3" />
-                  Code
+                  {t("common.code")}
                 </a>
               )}
             </div>
@@ -106,7 +110,7 @@ export function ProjectCard({
               className="inline-flex items-center gap-1 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] font-medium text-gray-200 transition hover:border-indigo-400/30 hover:bg-indigo-500/10 hover:text-white"
             >
               <Layers3 className="h-3 w-3" />
-              Details
+              {t("common.details")}
             </Link>
           </div>
         </div>

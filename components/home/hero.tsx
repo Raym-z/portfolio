@@ -6,8 +6,10 @@ import { DeveloperIllustration } from "@/components/home/developer-illustration"
 import { Badge } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button";
 import { PlatformIcon } from "@/components/ui/platform-icon";
+import { useMemo } from "react";
 import { useTypewriter } from "@/hooks/use-typewriter";
 import { siteConfig } from "@/lib/site-config";
+import { useI18n } from "@/lib/i18n/provider";
 
 const fadeUp = {
 	hidden: { opacity: 0, y: 24 },
@@ -15,9 +17,12 @@ const fadeUp = {
 };
 
 export function Hero() {
-	const typed = useTypewriter(siteConfig.hero.titles);
-	const roleParts = siteConfig.role.split(" ");
-	const lastWord = roleParts.pop() ?? siteConfig.role;
+	const { t, tList } = useI18n();
+	const titles = useMemo(() => tList("hero.titles"), [tList]);
+	const typed = useTypewriter(titles);
+	const role = t("hero.role");
+	const roleParts = role.split(" ");
+	const lastWord = roleParts.pop() ?? role;
 	const firstPart = roleParts.join(" ");
 
 	return (
@@ -29,7 +34,7 @@ export function Hero() {
 					<motion.div variants={fadeUp} transition={{ duration: 0.5 }}>
 						<Badge variant='indigo' className='gap-2 px-3 py-1.5 text-xs'>
 							<Sparkles className='h-3.5 w-3.5 text-indigo-300' />
-							{siteConfig.hero.badge}
+							{t("hero.badge")}
 							<span className='ml-1 flex h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]' />
 						</Badge>
 					</motion.div>
@@ -40,13 +45,13 @@ export function Hero() {
 					</motion.h1>
 
 					<motion.div variants={fadeUp} transition={{ duration: 0.6 }} className='mt-5 flex h-7 items-center text-base text-gray-400 sm:text-lg'>
-						<span className='mr-2 text-gray-600'>I&apos;m a</span>
+						<span className='mr-2 text-gray-600'>{t("hero.greeting")}</span>
 						<span className='font-light text-gray-200'>{typed}</span>
 						<span className='ml-1 h-5 w-[2px] animate-blink bg-gradient-to-t from-indigo-400 to-purple-400' />
 					</motion.div>
 
 					<motion.p variants={fadeUp} transition={{ duration: 0.6 }} className='mt-5 max-w-xl text-sm leading-relaxed text-gray-400 sm:text-base'>
-						{siteConfig.tagline} {siteConfig.description}
+						{t("hero.summary")}
 					</motion.p>
 
 					<motion.div variants={fadeUp} transition={{ duration: 0.6 }} className='mt-6 flex flex-wrap gap-2'>
@@ -62,10 +67,10 @@ export function Hero() {
 
 					<motion.div variants={fadeUp} transition={{ duration: 0.6 }} className='mt-8 flex flex-wrap items-center gap-3'>
 						<ButtonLink href='#projects' size='lg' icon={<ArrowRight className='h-4 w-4 transition-transform group-hover:translate-x-1' />}>
-							View projects
+							{t("common.viewProjects")}
 						</ButtonLink>
 						<ButtonLink href='#contact' variant='secondary' size='lg' icon={<Mail className='h-4 w-4' />}>
-							Contact me
+							{t("hero.contactMe")}
 						</ButtonLink>
 						{/* <Link
               href="/projects"
@@ -77,7 +82,7 @@ export function Hero() {
 					</motion.div>
 
 					<motion.div variants={fadeUp} transition={{ duration: 0.6 }} className='mt-8 flex items-center gap-2.5'>
-						<span className='text-[11px] uppercase tracking-[0.18em] text-gray-600'>Find me</span>
+						<span className='text-[11px] uppercase tracking-[0.18em] text-gray-600'>{t("hero.findMe")}</span>
 						<span className='h-px w-6 bg-white/10' />
 						{siteConfig.socials.map((social) => (
 							<a
@@ -102,7 +107,7 @@ export function Hero() {
 
 			<div className='absolute bottom-6 left-1/2 hidden -translate-x-1/2 items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-gray-600 sm:flex'>
 				<MousePointer2 className='h-3.5 w-3.5' />
-				Scroll to explore
+				{t("hero.scroll")}
 			</div>
 		</section>
 	);
