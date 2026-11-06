@@ -1,9 +1,9 @@
 import messages from "./messages.json";
 
-export const locales = ["id", "en"] as const;
+export const locales = ["en", "id"] as const;
 export type Locale = (typeof locales)[number];
 
-export const defaultLocale: Locale = "id";
+export const defaultLocale: Locale = "en";
 export const localeStorageKey = "portfolio-locale";
 
 export type TranslationVars = Record<string, string | number>;

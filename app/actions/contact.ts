@@ -1,7 +1,12 @@
 "use server";
 
 import { insertContactMessage } from "@/lib/services/messages";
-import { isLocale, translate, type Locale } from "@/lib/i18n/config";
+import {
+  defaultLocale,
+  isLocale,
+  translate,
+  type Locale,
+} from "@/lib/i18n/config";
 import { createContactSchema } from "@/lib/utils/validation";
 import type { ActionResult } from "@/types";
 
@@ -12,7 +17,7 @@ export async function submitContactMessage(input: {
   website?: string;
   locale?: Locale;
 }): Promise<ActionResult> {
-  const locale = isLocale(input.locale) ? input.locale : "id";
+  const locale = isLocale(input.locale) ? input.locale : defaultLocale;
   const t = (key: string) => translate(locale, key);
   const parsed = createContactSchema(t).safeParse(input);
 
