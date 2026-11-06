@@ -10,7 +10,7 @@ export function SiteFooter() {
 	return (
 		<footer className='relative mt-16 border-t border-white/[0.06] md:mt-24'>
 			<div className='section-shell py-8 md:py-12'>
-				<div className='max-w-md text-left'>
+				<div className='mx-auto max-w-md text-center md:mx-0 md:text-left'>
 					<p className='text-sm font-semibold text-white'>{siteConfig.name}</p>
 					<a
 						href={`mailto:${siteConfig.email}`}
